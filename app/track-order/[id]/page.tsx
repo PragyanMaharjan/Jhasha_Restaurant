@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import API from '@/lib/api';
 import { useAuthStore } from '@/lib/store';
+import type { AuthState } from '@/lib/types';
 import { toast } from 'react-toastify';
 import { FaArrowLeft, FaClock, FaMapMarkerAlt, FaPhone, FaCheckCircle } from 'react-icons/fa';
 
@@ -62,7 +63,8 @@ export default function OrderTracking() {
   const params = useParams();
   const router = useRouter();
   const orderId = (params?.id ?? '') as string;
-  const { isAuthenticated } = useAuthStore();
+  const authStore = useAuthStore as unknown as () => AuthState;
+  const { isAuthenticated } = authStore();
 
   const [order, setOrder] = useState<Order | null>(null);
   const [tracking, setTracking] = useState<Tracking | null>(null);

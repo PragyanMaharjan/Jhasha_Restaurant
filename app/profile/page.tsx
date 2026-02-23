@@ -28,8 +28,24 @@ export default function Profile() {
       return;
     }
 
+    // Initialize form with stored user data
+    if (user) {
+      setFormData({
+        name: user.name,
+        phone: user.phone,
+        address: user.address || '',
+        city: user.city || '',
+        zipCode: user.zipCode || '',
+      });
+
+      if (user.profileImage) {
+        setImagePreview(`http://localhost:5000/${user.profileImage}`);
+      }
+    }
+
+    // Fetch latest profile data from server
     fetchProfile();
-  }, [isAuthenticated, router]);
+  }, [isAuthenticated, router, user]);
 
   const fetchProfile = async () => {
     try {
@@ -91,6 +107,15 @@ export default function Profile() {
       });
 
       setUser(response.data.user);
+      
+      // Update the displayed profile image
+      if (response.data.user.profileImage) {
+        setImagePreview(`http://localhost:5000/${response.data.user.profileImage}`);
+      }
+      
+      // Clear the file input
+      setProfileImage(null);
+      
       toast.success('✅ Profile updated successfully!');
       setIsEditing(false);
     } catch (error: any) {
@@ -125,7 +150,12 @@ export default function Profile() {
                   <div className="relative w-40 h-40 mx-auto mb-4">
                     <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden flex items-center justify-center border-4 border-primary/20">
                       {imagePreview ? (
-                        <img src={imagePreview} alt="Profile" className="w-full h-full object-cover" />
+                        <img 
+                          key={imagePreview}
+                          src={`${imagePreview}?t=${Date.now()}`}
+                          alt="Profile" 
+                          className="w-full h-full object-cover" 
+                        />
                       ) : (
                         <div className="text-6xl">👤</div>
                       )}
