@@ -1,14 +1,6 @@
 import { useCartStore } from '@/lib/store';
+import type { FoodItem, CartState } from '@/lib/types';
 import { toast } from 'react-toastify';
-
-interface FoodItem {
-  _id: string;
-  name: string;
-  price: number;
-  image: string;
-  description: string;
-  category: string;
-}
 
 /**
  * Custom hook for cart operations
@@ -16,7 +8,8 @@ interface FoodItem {
  * @returns {Object} Cart state and operations
  */
 export function useCart() {
-  const { cart, total, addToCart, removeFromCart, updateQuantity, clearCart } = useCartStore();
+  const cartStore = useCartStore as unknown as () => CartState;
+  const { cart, total, addToCart, removeFromCart, updateQuantity, clearCart } = cartStore();
 
   /**
    * Add item to cart with success notification

@@ -1,4 +1,5 @@
 import { useAuthStore } from '@/lib/store';
+import type { AuthState } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
@@ -9,7 +10,8 @@ import { useEffect } from 'react';
  */
 export function useAuth() {
   const router = useRouter();
-  const { isAuthenticated, user, logout } = useAuthStore();
+  const authStore = useAuthStore as unknown as () => AuthState;
+  const { isAuthenticated, user, logout } = authStore();
 
   /**
    * Require user to be authenticated
