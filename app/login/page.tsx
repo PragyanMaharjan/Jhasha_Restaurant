@@ -6,7 +6,7 @@ import API from '@/lib/api';
 import { useAuthStore } from '@/lib/store';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
-import { FaEnvelope, FaLock, FaSignInAlt, FaUserShield, FaUser } from 'react-icons/fa';
+import { FaEnvelope, FaLock, FaSignInAlt, FaUserShield, FaUser, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 export default function Login() {
   const router = useRouter();
@@ -17,6 +17,7 @@ export default function Login() {
   });
   const [loading, setLoading] = useState(false);
   const [loginType, setLoginType] = useState<'user' | 'admin'>('user');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -123,14 +124,21 @@ export default function Login() {
                 <div className="relative">
                   <FaLock className="absolute left-4 top-4 text-primary text-lg" />
                   <input
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary focus:outline-none transition bg-gray-50 focus:bg-white"
+                    className="w-full pl-12 pr-12 py-3 rounded-lg border-2 border-gray-200 focus:border-primary focus:outline-none transition bg-gray-50 focus:bg-white"
                     placeholder="••••••••"
                   />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-4 top-4 text-primary text-lg hover:text-red-600 transition"
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </button>
                 </div>
               </div>
 
