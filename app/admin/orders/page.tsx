@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import API from '@/lib/api';
 import { useAuthStore } from '@/lib/store';
+import type { AuthState } from '@/lib/types';
 import AdminSidebar from '@/components/AdminSidebar';
 import { toast } from 'react-toastify';
 
@@ -36,11 +37,25 @@ interface Order {
 
 export default function AdminOrders() {
   const router = useRouter();
-  const { isAuthenticated, user } = useAuthStore();
+  const authStore = useAuthStore as unknown as () => AuthState;
+  const { isAuthenticated, user } = authStore();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
   const [showModal, setShowModal] = useState(false);
+
+  // Define fetchOrders before useEffect
+  const fetchOrders = async () => {
+    try {
+      setLoading(true);
+      const response = await API.get('/orders/admin/all');
+      setOrders(response.data.orders);
+    } catch (error) {
+      console.error('Failed to fetch orders:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (!isAuthenticated || user?.role !== 'admin') {
@@ -49,19 +64,7 @@ export default function AdminOrders() {
     }
 
     fetchOrders();
-  }, [isAuthenticated, user, router]);
-
-  const fetchOrders = async () => {
-    try {
-      setLoading(true);
-      const response = await API.get('/orders/admin/all');
-      setOrders(response.data.orders);
-    } catch (error) {
-      toast.error('Failed to fetch orders');
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [isAuthenticated, user]); // Remove router and fetchOrders from dependencies
 
   const updateOrderStatus = async (orderId: string, newStatus: string) => {
     try {

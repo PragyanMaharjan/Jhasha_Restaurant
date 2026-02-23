@@ -36,7 +36,8 @@ interface RecentUser {
 
 export default function AdminDashboard() {
   const router = useRouter();
-  const { isAuthenticated, user } = useAuthStore();
+  const authStore = useAuthStore as unknown as () => import('@/lib/types').AuthState;
+  const { isAuthenticated, user } = authStore();
   const [stats, setStats] = useState<Stats>({
     totalUsers: 0,
     totalOrders: 0,
