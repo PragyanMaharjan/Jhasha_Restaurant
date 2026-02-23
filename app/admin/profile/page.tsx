@@ -18,7 +18,7 @@ export default function AdminProfile() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    photo: '',
+    profileImage: '',
   });
 
   const [passwordData, setPasswordData] = useState({
@@ -35,10 +35,10 @@ export default function AdminProfile() {
       setFormData({
         name: user.name || '',
         email: user.email || '',
-        photo: user.photo || '',
+        profileImage: user.profileImage || '',
       });
-      if (user.photo) {
-        setPhotoPreview(user.photo);
+      if (user.profileImage) {
+        setPhotoPreview(user.profileImage);
       }
     }
   }, [user]);
@@ -244,9 +244,9 @@ export default function AdminProfile() {
                         setFormData({
                           name: user?.name || '',
                           email: user?.email || '',
-                          photo: user?.photo || '',
+                          profileImage: user?.profileImage || '',
                         });
-                        setPhotoPreview(user?.photo || '');
+                        setPhotoPreview(user?.profileImage || '');
                         setPhotoFile(null);
                       }}
                       className="flex-1 bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg hover:bg-gray-400 transition"
