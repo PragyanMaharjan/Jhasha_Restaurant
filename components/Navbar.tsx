@@ -3,19 +3,16 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuthStore, useCartStore } from '@/lib/store';
+import { useHydration } from '@/lib/storeProvider';
 import { FaShoppingCart, FaSignOutAlt, FaUser, FaHome } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const router = useRouter();
+  const isHydrated = useHydration();
   const { isAuthenticated, user, logout } = useAuthStore();
   const { cart } = useCartStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isHydrated, setIsHydrated] = useState(false);
-
-  useEffect(() => {
-    setIsHydrated(true);
-  }, []);
 
   const handleLogout = () => {
     if (confirm('Are you sure you want to logout?')) {
