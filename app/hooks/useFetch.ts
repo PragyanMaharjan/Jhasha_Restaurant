@@ -79,7 +79,7 @@ export function useMutation<T = any, R = any>() {
     setError(null);
 
     try {
-      const response = await API[method](url, data);
+      const response = await API[method](url, data as any);
       setLoading(false);
       return response.data;
     } catch (err) {

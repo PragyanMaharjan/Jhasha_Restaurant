@@ -9,23 +9,30 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     css: true,
+    include: ['app/**/*.{test,spec}.{ts,tsx}', 'components/**/*.{test,spec}.{ts,tsx}'],
+    exclude: ['node_modules/', '.next/', 'e2e/**', '**/e2e/**'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
+      include: ['app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}', 'lib/**/*.{ts,tsx}'],
       exclude: [
         'node_modules/',
         '.next/',
+        'e2e/',
         'vitest.config.ts',
         'vitest.setup.ts',
+        'playwright.config.ts',
         '**/*.d.ts',
         '**/*.config.js',
         '**/mockData/**',
+        '**/*.test.{ts,tsx}',
+        '**/*.spec.{ts,tsx}',
       ],
     },
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './app'),
+      '@': path.resolve(__dirname, './'),
     },
   },
 });

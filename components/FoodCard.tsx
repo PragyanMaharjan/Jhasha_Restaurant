@@ -3,24 +3,14 @@
 import { useEffect, useState } from 'react';
 import API from '@/lib/api';
 import { useCartStore } from '@/lib/store';
+import type { FoodItem } from '@/lib/types';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
 import { FaHeart, FaPlus, FaMinus, FaStar } from 'react-icons/fa';
 
-interface Food {
-  _id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  category: string;
-  rating: number;
-  isVegetarian: boolean;
-  spiceLevel: string;
-}
-
-export default function FoodCard({ food }: { food: Food }) {
-  const { addToCart, cart, updateQuantity } = useCartStore();
+export default function FoodCard({ food }: { food: FoodItem }) {
+  const cartStore = useCartStore as unknown as () => import('@/lib/types').CartState;
+  const { addToCart, cart, updateQuantity } = cartStore();
   const [quantity, setQuantity] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -82,7 +72,7 @@ export default function FoodCard({ food }: { food: Food }) {
         </button>
 
         {/* Rating */}
-        {food.rating > 0 && (
+        {(food.rating ?? 0) > 0 && (
           <div className="absolute bottom-3 left-3 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
             <FaStar size={12} className="text-yellow-400" />
             {food.rating}
@@ -97,11 +87,13 @@ export default function FoodCard({ food }: { food: Food }) {
 
       {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-4">
-        <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${spiceLevelColors[food.spiceLevel]}`}>
-          {food.spiceLevel === 'mild' && '🌶️ Mild'}
-          {food.spiceLevel === 'medium' && '🌶️🌶️ Medium'}
-          {food.spiceLevel === 'hot' && '🌶️🌶️🌶️ Hot'}
-        </span>
+        {food.spiceLevel && (
+          <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${spiceLevelColors[food.spiceLevel]}`}>
+            {food.spiceLevel === 'mild' && '🌶️ Mild'}
+            {food.spiceLevel === 'medium' && '🌶️🌶️ Medium'}
+            {food.spiceLevel === 'hot' && '🌶️🌶️🌶️ Hot'}
+          </span>
+        )}
         <span
           className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${
             food.isVegetarian ? 'bg-green-50 text-green-700' : 'bg-orange-50 text-orange-700'

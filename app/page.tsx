@@ -3,23 +3,12 @@
 import { useEffect, useState } from 'react';
 import API from '@/lib/api';
 import FoodCard from '@/components/FoodCard';
+import type { FoodItem } from '@/lib/types';
 import { toast } from 'react-toastify';
 import { FaSearch, FaFire } from 'react-icons/fa';
 
-interface Food {
-  _id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  category: string;
-  rating: number;
-  isVegetarian: boolean;
-  spiceLevel: string;
-}
-
 export default function Home() {
-  const [foods, setFoods] = useState<Food[]>([]);
+  const [foods, setFoods] = useState<FoodItem[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [loading, setLoading] = useState(true);
