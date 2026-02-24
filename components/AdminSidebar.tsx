@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useAuthStore } from '@/lib/store';
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect } from 'react';
-import { FaBox, FaUsers, FaClipboardList, FaHome, FaUserTie, FaSignOutAlt } from 'react-icons/fa';
+import { FaBox, FaUsers, FaClipboardList, FaHome, FaUserTie, FaSignOutAlt, FaInfoCircle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 export default function AdminSidebar() {
@@ -32,6 +32,7 @@ export default function AdminSidebar() {
     { href: '/admin/employees', icon: FaUserTie, label: 'Employees' },
     { href: '/admin/food', icon: FaBox, label: 'Food Menu' },
     { href: '/admin/orders', icon: FaClipboardList, label: 'Orders' },
+    { href: '/admin/about', icon: FaInfoCircle, label: 'About Us' },
   ];
 
   return (

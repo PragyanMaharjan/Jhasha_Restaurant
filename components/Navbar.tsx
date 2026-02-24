@@ -42,6 +42,9 @@ export default function Navbar() {
             <Link href="/" className="hover:text-primary transition duration-300 flex items-center gap-2 font-medium">
               <FaHome size={18} /> Menu
             </Link>
+            <Link href="/about" className="hover:text-primary transition duration-300 font-medium">
+              About Us
+            </Link>
 
             {isHydrated && (
               <>
@@ -116,6 +119,9 @@ export default function Navbar() {
             <div className="flex flex-col gap-3">
               <Link href="/" className="hover:text-primary transition font-medium px-2">
                 Menu
+              </Link>
+              <Link href="/about" className="hover:text-primary transition font-medium px-2">
+                About Us
               </Link>
               {isAuthenticated ? (
                 <>

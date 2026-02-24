@@ -4,6 +4,7 @@ import { useState } from 'react';
 import API from '@/lib/api';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -14,11 +15,26 @@ export default function ForgotPassword() {
     e.preventDefault();
     try {
       setLoading(true);
-      await API.post('/auth/forgot-password', { email });
+      console.log('Sending forgot password request for:', email);
+      console.log('API endpoint:', '/auth/forgot-password');
+      
+      const response = await API.post('/auth/forgot-password', { email });
+      
+      console.log('Forgot password response:', response.data);
+      
       setEmailSent(true);
-      toast.success('Password reset email sent!');
+      toast.success('✅ Password reset email sent! Please check your inbox.');
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to send reset email');
+      console.error('Forgot password error:', {
+        status: error.response?.status,
+        statusText: error.response?.statusText,
+        message: error.response?.data?.message,
+        url: error.config?.url,
+        baseURL: error.config?.baseURL,
+        fullURL: `${error.config?.baseURL}${error.config?.url}`
+      });
+      
+      toast.error(getErrorMessage(error, '❌ Unable to send reset email. Please try again.'));
     } finally {
       setLoading(false);
     }

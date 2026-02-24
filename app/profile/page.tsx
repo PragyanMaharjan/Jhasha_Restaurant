@@ -6,10 +6,12 @@ import { useAuthStore } from '@/lib/store';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import { FaCamera, FaUser, FaPhone, FaMapMarkerAlt, FaCity, FaMailBulk, FaEdit } from 'react-icons/fa';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 export default function Profile() {
   const router = useRouter();
   const { isAuthenticated, user, setUser } = useAuthStore();
+  const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -23,6 +25,12 @@ export default function Profile() {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     if (!isAuthenticated) {
       router.push('/login');
       return;
@@ -45,7 +53,7 @@ export default function Profile() {
 
     // Fetch latest profile data from server
     fetchProfile();
-  }, [isAuthenticated, router, user]);
+  }, [mounted, isAuthenticated, router, user]);
 
   const fetchProfile = async () => {
     try {
@@ -61,8 +69,8 @@ export default function Profile() {
       if (userData.profileImage) {
         setImagePreview(`http://localhost:5000/${userData.profileImage}`);
       }
-    } catch (error) {
-      toast.error('Failed to load profile');
+    } catch (error: any) {
+      toast.error(getErrorMessage(error, '⚠️ Unable to load your profile. Please refresh the page.'));
     }
   };
 
@@ -119,11 +127,16 @@ export default function Profile() {
       toast.success('✅ Profile updated successfully!');
       setIsEditing(false);
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to update profile');
+      toast.error(getErrorMessage(error, '❌ Unable to update your profile. Please try again.'));
     } finally {
       setLoading(false);
     }
   };
+
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
   if (!isAuthenticated) {
     return null;

@@ -7,6 +7,7 @@ import { useAuthStore } from '@/lib/store';
 import AdminSidebar from '@/components/AdminSidebar';
 import { toast } from 'react-toastify';
 import { FaSearch, FaToggleOn, FaToggleOff, FaTrash, FaEye, FaUserPlus, FaTimes, FaPhone, FaEnvelope, FaCalendarAlt, FaUsers, FaEdit } from 'react-icons/fa';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 interface User {
   _id: string;
@@ -85,7 +86,7 @@ export default function AdminUsers() {
       fetchUsers();
       toast.success('🗑️ User deleted successfully');
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to delete user');
+      toast.error(getErrorMessage(error, '❌ Unable to delete user. Please try again.'));
     }
   };
 
@@ -131,7 +132,7 @@ export default function AdminUsers() {
       setImagePreview('');
       toast.success('✅ User created successfully');
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to create user');
+      toast.error(getErrorMessage(error, '❌ Unable to create user. Please check the information.'));
     }
   };
 
@@ -169,7 +170,7 @@ export default function AdminUsers() {
       setImagePreview('');
       toast.success('✅ User updated successfully');
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to update user');
+      toast.error(getErrorMessage(error, '❌ Unable to update user status. Please try again.'));
     }
   };
 

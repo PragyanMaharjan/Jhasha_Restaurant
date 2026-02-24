@@ -5,6 +5,7 @@ import { useState } from 'react';
 import API from '@/lib/api';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 export default function ResetPassword() {
   const params = useParams();
@@ -41,7 +42,7 @@ export default function ResetPassword() {
       toast.success('Password reset successful!');
       router.push('/login');
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to reset password');
+      toast.error(getErrorMessage(error, '❌ Unable to reset password. The link may have expired.'));
     } finally {
       setLoading(false);
     }

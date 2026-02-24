@@ -7,6 +7,7 @@ import { useAuthStore } from '@/lib/store';
 import AdminSidebar from '@/components/AdminSidebar';
 import { toast } from 'react-toastify';
 import { FaTrash, FaEdit, FaPlus } from 'react-icons/fa';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 interface Food {
   _id: string;
@@ -93,7 +94,7 @@ export default function AdminFood() {
       setShowForm(false);
       fetchFoods();
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to save food');
+      toast.error(getErrorMessage(error, '❌ Unable to save food item. Please try again.'));
     }
   };
 

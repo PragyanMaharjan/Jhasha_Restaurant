@@ -12,12 +12,17 @@ export default function OrderConfirmation() {
   const orderId = params?.id as string;
   const [order, setOrder] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (orderId) {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted && orderId) {
       fetchOrder();
     }
-  }, [orderId]);
+  }, [mounted, orderId]);
 
   const fetchOrder = async () => {
     try {
@@ -29,6 +34,11 @@ export default function OrderConfirmation() {
       setLoading(false);
     }
   };
+
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
   if (loading) {
     return (

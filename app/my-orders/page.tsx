@@ -19,17 +19,24 @@ interface Order {
 export default function MyOrders() {
   const router = useRouter();
   const { isAuthenticated } = useAuthStore();
+  const [mounted, setMounted] = useState(false);
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     if (!isAuthenticated) {
       router.push('/login');
       return;
     }
 
     fetchOrders();
-  }, [isAuthenticated, router]);
+  }, [mounted, isAuthenticated, router]);
 
   const fetchOrders = async () => {
     try {
@@ -71,6 +78,11 @@ export default function MyOrders() {
         return 'bg-gray-50 border-gray-200 text-gray-700';
     }
   };
+
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
   if (!isAuthenticated) {
     return null;

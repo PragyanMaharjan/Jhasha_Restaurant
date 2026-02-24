@@ -6,6 +6,7 @@ import API from '@/lib/api';
 import { toast } from 'react-toastify';
 import { FaUser, FaEnvelope, FaLock, FaCamera, FaEye, FaEyeSlash, FaSave } from 'react-icons/fa';
 import Image from 'next/image';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 export default function AdminProfile() {
   const { user, setUser } = useAuthStore();
@@ -94,7 +95,7 @@ export default function AdminProfile() {
       setIsEditing(false);
       setPhotoFile(null);
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to update profile');
+      toast.error(getErrorMessage(error, '❌ Unable to update profile. Please try again.'));
     } finally {
       setLoading(false);
     }
@@ -123,7 +124,7 @@ export default function AdminProfile() {
         confirmPassword: '',
       });
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to change password');
+      toast.error(getErrorMessage(error, '❌ Unable to change password. Please check your current password.'));
     } finally {
       setLoading(false);
     }

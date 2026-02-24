@@ -22,14 +22,15 @@ const initializeAuthStore = (): Pick<AuthState, 'user' | 'token' | 'isAuthentica
 export const useAuthStore = create<AuthState>((set) => ({
   ...initializeAuthStore(),
 
-  setUser: (user: User | null) => set({ user }),
+  setUser: (user: User | null) => set({ user, isAuthenticated: !!user }),
   setToken: (token: string | null) => {
     if (token) {
       Cookies.set('token', token, { expires: 7 });
+      set({ token, isAuthenticated: true });
     } else {
       Cookies.remove('token');
+      set({ token: null, isAuthenticated: false });
     }
-    set({ token, isAuthenticated: !!token });
   },
   logout: () => {
     Cookies.remove('token');

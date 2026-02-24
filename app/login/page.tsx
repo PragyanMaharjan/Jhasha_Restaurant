@@ -1,16 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import API from '@/lib/api';
 import { useAuthStore } from '@/lib/store';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
 import { FaEnvelope, FaLock, FaSignInAlt, FaUserShield, FaUser, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 export default function Login() {
   const router = useRouter();
-  const { setUser, setToken } = useAuthStore();
+  const { setUser, setToken, isAuthenticated, user } = useAuthStore();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -18,6 +19,23 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [loginType, setLoginType] = useState<'user' | 'admin'>('user');
   const [showPassword, setShowPassword] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Handle client-side mounting
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (mounted && isAuthenticated && user) {
+      if (user.role === 'admin') {
+        router.replace('/admin/dashboard');
+      } else {
+        router.replace('/');
+      }
+    }
+  }, [mounted, isAuthenticated, user, router]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -28,25 +46,66 @@ export default function Login() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Prevent multiple submissions
+    if (loading) return;
+    
     try {
       setLoading(true);
+      
+      console.log('Attempting login with:', { email: formData.email });
+      
       const response = await API.post('/auth/login', formData);
       
+      console.log('Login successful:', response.data);
+      
+      // Set token first, then user - this ensures auth state is properly updated
       setToken(response.data.token);
       setUser(response.data.user);
+      
       toast.success('🎉 Login successful!');
       
+      // Use replace instead of push to prevent back button issues
       if (response.data.user.role === 'admin') {
-        router.push('/admin/dashboard');
+        router.replace('/admin/dashboard');
       } else {
-        router.push('/');
+        router.replace('/');
       }
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Login failed');
-    } finally {
+      console.error('Login error details:', {
+        status: error.response?.status,
+        message: error.response?.data?.message,
+        error: error.message,
+        credentials: { email: formData.email } // Don't log password
+      });
+      
+      // More specific error message for 401
+      let errorMessage;
+      if (error.response?.status === 401) {
+        errorMessage = '❌ Invalid email or password. Please check your credentials or register a new account.';
+      } else {
+        errorMessage = getErrorMessage(error, '❌ Unable to log in. Please try again.');
+      }
+      
+      toast.error(errorMessage, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+      });
       setLoading(false);
     }
   };
+
+  // Don't render login form if already authenticated
+  if (!mounted || (isAuthenticated && user)) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-primary/20 to-gray-900 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-primary/20 to-gray-900 flex items-center justify-center py-12 px-4">

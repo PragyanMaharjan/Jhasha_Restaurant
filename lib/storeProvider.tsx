@@ -13,7 +13,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   return (
     <HydrationContext.Provider value={isHydrated}>
-      {isHydrated ? children : null}
+      {children}
     </HydrationContext.Provider>
   );
 }

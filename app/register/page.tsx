@@ -7,6 +7,7 @@ import { useAuthStore } from '@/lib/store';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
 import { FaUser, FaEnvelope, FaPhone, FaLock, FaUserPlus, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 export default function Register() {
   const router = useRouter();
@@ -68,12 +69,10 @@ export default function Register() {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       
-      setToken(response.data.token);
-      setUser(response.data.user);
-      toast.success('🎉 Registration successful!');
-      router.push('/');
+      toast.success('🎉 Registration successful! Please login to continue.');
+      router.push('/login');
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Registration failed');
+      toast.error(getErrorMessage(error, '❌ Unable to create your account. Please try again.'));
     } finally {
       setLoading(false);
     }
@@ -177,7 +176,7 @@ export default function Register() {
                     onChange={handleChange}
                     required
                     className="w-full pl-12 pr-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary focus:outline-none transition bg-gray-50 focus:bg-white"
-                    placeholder="+91 98765 43210"
+                    placeholder="+977-9812345678"
                   />
                 </div>
               </div>

@@ -8,6 +8,7 @@ import { useAuthStore } from '@/lib/store';
 import type { AuthState } from '@/lib/types';
 import { toast } from 'react-toastify';
 import { FaArrowLeft, FaClock, FaMapMarkerAlt, FaPhone, FaCheckCircle } from 'react-icons/fa';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 interface OrderItem {
   foodId: {
@@ -89,7 +90,7 @@ export default function OrderTracking() {
       setOrder(response.data.order);
       setTracking(response.data.tracking);
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to fetch order tracking');
+      toast.error(getErrorMessage(error, '❌ Unable to load order tracking. Please try again.'));
       router.push('/orders');
     } finally {
       setLoading(false);

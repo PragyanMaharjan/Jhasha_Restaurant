@@ -9,6 +9,7 @@ import AdminSidebar from '@/components/AdminSidebar';
 import { toast } from 'react-toastify';
 import {  FaArrowLeft, FaEnvelope, FaPhone, FaCalendarAlt, FaEdit, FaTrash, FaToggleOn, FaToggleOff, FaShoppingBag, FaCheckCircle, FaTimes
 } from 'react-icons/fa';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 interface User {
   _id: string;
@@ -51,7 +52,7 @@ export default function UserDetail() {
       setUser(response.data.user);
       setOrdersCount(response.data.ordersCount);
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to fetch user details');
+      toast.error(getErrorMessage(error, '❌ Unable to load user details. Please try again.'));
       router.push('/admin/users');
     } finally {
       setLoading(false);
@@ -81,7 +82,7 @@ export default function UserDetail() {
       toast.success('🗑️ User deleted successfully');
       router.push('/admin/users');
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to delete user');
+      toast.error(getErrorMessage(error, '❌ Unable to delete user. Please try again.'));
     }
   };
 

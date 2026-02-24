@@ -8,6 +8,7 @@ import { useAuthStore } from '@/lib/store';
 import AdminSidebar from '@/components/AdminSidebar';
 import { toast } from 'react-toastify';
 import { FaClock, FaPhone, FaMapMarkerAlt, FaEye } from 'react-icons/fa';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 interface Delivery {
   id: string;
@@ -51,7 +52,7 @@ export default function ActiveDeliveries() {
       const response = await API.get('/tracking/active-deliveries');
       setDeliveries(response.data.deliveries);
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to fetch active deliveries');
+      toast.error(getErrorMessage(error, '❌ Unable to load active deliveries. Please refresh the page.'));
     } finally {
       setLoading(false);
     }
@@ -81,7 +82,7 @@ export default function ActiveDeliveries() {
       toast.success('✅ Order status updated');
       fetchActiveDeliveries();
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to update status');
+      toast.error(getErrorMessage(error, '❌ Unable to update delivery status. Please try again.'));
     }
   };
 

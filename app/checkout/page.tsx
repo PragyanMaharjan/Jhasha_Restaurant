@@ -6,11 +6,14 @@ import API from '@/lib/api';
 import { useAuthStore, useCartStore } from '@/lib/store';
 import { toast } from 'react-toastify';
 import { FaMapMarkerAlt, FaPhone, FaCreditCard, FaStickyNote, FaCheckCircle, FaTruck, FaFileInvoice } from 'react-icons/fa';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 export default function Checkout() {
   const router = useRouter();
   const { isAuthenticated, user } = useAuthStore();
   const { cart, total, clearCart } = useCartStore();
+  const [mounted, setMounted] = useState(false);
+  const [orderPlaced, setOrderPlaced] = useState(false);
 
   const [formData, setFormData] = useState({
     deliveryAddress: '',
@@ -23,12 +26,19 @@ export default function Checkout() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     if (!isAuthenticated) {
       router.push('/login');
       return;
     }
 
-    if (cart.length === 0) {
+    // Don't redirect to cart if order was just placed
+    if (cart.length === 0 && !orderPlaced) {
       router.push('/cart');
       return;
     }
@@ -43,7 +53,7 @@ export default function Checkout() {
         phoneNumber: user.phone || '',
       }));
     }
-  }, [isAuthenticated, cart.length, user, router]);
+  }, [mounted, isAuthenticated, cart.length, user, router, orderPlaced]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -76,25 +86,17 @@ export default function Checkout() {
       const response = await API.post('/orders', orderData);
       const orderId = response.data.order._id;
 
-      if (formData.paymentMethod === 'online') {
-        // Create payment intent
-        const paymentResponse = await API.post('/orders/payment/create-intent', {
-          orderId,
-          amount: orderData.totalAmount,
-        });
-
-        localStorage.setItem('orderId', orderId);
-        localStorage.setItem('clientSecret', paymentResponse.data.clientSecret);
-
-        router.push('/payment');
-      } else {
-        // Cash on delivery
-        clearCart();
-        toast.success('✅ Order placed successfully!');
-        router.push(`/order-confirmation/${orderId}`);
-      }
+      // Mark order as placed to prevent cart redirect
+      setOrderPlaced(true);
+      
+      // Clear cart before redirect
+      clearCart();
+      
+      // Show success message and redirect
+      toast.success('✅ Order placed successfully!');
+      router.push(`/order-confirmation/${orderId}`);
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to place order');
+      toast.error(getErrorMessage(error, '❌ Unable to place your order. Please try again.'));
     } finally {
       setLoading(false);
     }
@@ -103,6 +105,11 @@ export default function Checkout() {
   const deliveryFee = 50;
   const tax = (total * 0.05).toFixed(2);
   const grandTotal = (total + deliveryFee + parseFloat(tax)).toFixed(2);
+
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
   if (!isAuthenticated || cart.length === 0) {
     return null;

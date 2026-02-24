@@ -8,6 +8,7 @@ import { useAuthStore } from '@/lib/store';
 import AdminSidebar from '@/components/AdminSidebar';
 import { toast } from 'react-toastify';
 import { FaArrowLeft, FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt, FaCity, FaMailBulk, FaSave } from 'react-icons/fa';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 interface UserFormData {
   name: string;
@@ -65,7 +66,7 @@ export default function EditUser() {
         setImagePreview(`http://localhost:5000/${user.profileImage}`);
       }
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to fetch user details');
+      toast.error(getErrorMessage(error, '❌ Unable to load user details. Please try again.'));
       router.push('/admin/users');
     } finally {
       setLoading(false);
@@ -108,7 +109,7 @@ export default function EditUser() {
       toast.success('✅ User updated successfully');
       router.push(`/admin/users/${userId}`);
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to update user');
+      toast.error(getErrorMessage(error, '❌ Unable to update user. Please check the information.'));
     } finally {
       setSubmitting(false);
     }

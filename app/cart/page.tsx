@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useCartStore, useAuthStore } from '@/lib/store';
 import Link from 'next/link';
@@ -12,12 +12,17 @@ export default function Cart() {
   const router = useRouter();
   const { isAuthenticated } = useAuthStore();
   const { cart, total, removeFromCart, updateQuantity, clearCart } = useCartStore();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted && !isAuthenticated) {
       router.push('/login');
     }
-  }, [isAuthenticated, router]);
+  }, [mounted, isAuthenticated, router]);
 
   const handleCheckout = async () => {
     if (cart.length === 0) {
@@ -30,6 +35,11 @@ export default function Cart() {
   const deliveryFee = 50;
   const tax = (total * 0.05).toFixed(2);
   const grandTotal = (total + deliveryFee + parseFloat(tax)).toFixed(2);
+
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
   if (!isAuthenticated) {
     return null;

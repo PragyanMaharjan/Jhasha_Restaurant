@@ -6,6 +6,7 @@ import Link from 'next/link';
 import API from '@/lib/api';
 import { toast } from 'react-toastify';
 import { FaLock, FaArrowLeft, FaEye, FaEyeSlash, FaCheckCircle } from 'react-icons/fa';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 function ResetPasswordContent() {
   const router = useRouter();
@@ -55,7 +56,7 @@ function ResetPasswordContent() {
         router.push('/login');
       }, 3000);
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Failed to reset password');
+      toast.error(getErrorMessage(error, '❌ Unable to reset password. Please try again.'));
     } finally {
       setLoading(false);
     }

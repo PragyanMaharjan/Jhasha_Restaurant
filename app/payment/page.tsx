@@ -7,6 +7,7 @@ import { useAuthStore, useCartStore } from '@/lib/store';
 import { toast } from 'react-toastify';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { getErrorMessage } from '@/lib/errorHandler';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
@@ -29,7 +30,7 @@ function PaymentForm() {
       const orderId = localStorage.getItem('orderId');
 
       if (!clientSecret) {
-        toast.error('Payment initialization failed');
+        toast.error('❌ Payment session expired. Please try again.');
         return;
       }
 
@@ -42,7 +43,7 @@ function PaymentForm() {
       });
 
       if (error) {
-        toast.error(error.message || 'Payment failed');
+        toast.error(`❌ ${error.message || 'Payment was declined. Please check your card details.'}`);
       } else if (paymentIntent?.status === 'succeeded') {
         // Update order status
         await API.put(`/orders/${orderId}/status`, {
@@ -58,7 +59,7 @@ function PaymentForm() {
         router.push(`/order-confirmation/${orderId}`);
       }
     } catch (error: any) {
-      toast.error(error.message || 'Payment failed');
+      toast.error(getErrorMessage(error, '❌ Payment processing failed. Please try again.'));
     } finally {
       setLoading(false);
     }
@@ -97,12 +98,22 @@ function PaymentForm() {
 export default function Payment() {
   const router = useRouter();
   const { isAuthenticated } = useAuthStore();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted && !isAuthenticated) {
       router.push('/login');
     }
-  }, [isAuthenticated, router]);
+  }, [mounted, isAuthenticated, router]);
+
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
   if (!isAuthenticated) {
     return null;
