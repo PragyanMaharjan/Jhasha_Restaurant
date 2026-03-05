@@ -19,7 +19,7 @@ export default function Checkout() {
     deliveryAddress: '',
     deliveryCity: '',
     deliveryZipCode: '',
-    phoneNumber: '',
+    phoneNumber: '+977 ',
     paymentMethod: 'online',
     notes: '',
   });
@@ -45,12 +45,20 @@ export default function Checkout() {
 
     // Pre-fill user data
     if (user) {
+      let userPhone = user.phone || '';
+      // Add country code if not present
+      if (userPhone && !userPhone.startsWith('+')) {
+        userPhone = '+977 ' + userPhone.replace(/^\+977\s*/, '');
+      } else if (userPhone && !userPhone.includes(' ')) {
+        userPhone = userPhone.slice(0, 4) + ' ' + userPhone.slice(4);
+      }
+      
       setFormData((prev) => ({
         ...prev,
         deliveryAddress: user.address || '',
         deliveryCity: user.city || '',
         deliveryZipCode: user.zipCode || '',
-        phoneNumber: user.phone || '',
+        phoneNumber: userPhone || '+977 ',
       }));
     }
   }, [mounted, isAuthenticated, cart.length, user, router, orderPlaced]);
@@ -62,11 +70,50 @@ export default function Checkout() {
     });
   };
 
+  const validateForm = (): boolean => {
+    const { deliveryAddress, deliveryCity, deliveryZipCode, phoneNumber } = formData;
+
+    // Validate address length
+    if (!deliveryAddress || deliveryAddress.trim().length < 10) {
+      toast.error('❌ Address must be at least 10 characters long');
+      return false;
+    }
+    if (deliveryAddress.trim().length > 200) {
+      toast.error('❌ Address must not exceed 200 characters');
+      return false;
+    }
+
+    // Validate city
+    if (!deliveryCity || deliveryCity.trim().length < 2) {
+      toast.error('❌ City name must be at least 2 characters');
+      return false;
+    }
+    if (deliveryCity.trim().length > 50) {
+      toast.error('❌ City name must not exceed 50 characters');
+      return false;
+    }
+
+    // Validate zip code (4-10 digits only)
+    const zipCodeRegex = /^[0-9]{4,10}$/;
+    if (!deliveryZipCode || !zipCodeRegex.test(deliveryZipCode.trim())) {
+      toast.error('❌ Zip code must be 4-10 digits');
+      return false;
+    }
+
+    // Validate phone number
+    const phoneRegex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,9}$/;
+    if (!phoneNumber || !phoneRegex.test(phoneNumber.trim())) {
+      toast.error('❌ Please enter a valid phone number');
+      return false;
+    }
+
+    return true;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.deliveryAddress || !formData.deliveryCity || !formData.deliveryZipCode) {
-      toast.error('❌ Please fill in all delivery details');
+    if (!validateForm()) {
       return;
     }
 
@@ -79,8 +126,13 @@ export default function Checkout() {
           quantity: item.quantity,
           price: item.price,
         })),
-        totalAmount: total + 50 + total * 0.05,
-        ...formData,
+        totalAmount: parseFloat(grandTotal),
+        deliveryAddress: formData.deliveryAddress.trim(),
+        deliveryCity: formData.deliveryCity.trim(),
+        deliveryZipCode: formData.deliveryZipCode.trim(),
+        phoneNumber: formData.phoneNumber.trim(),
+        paymentMethod: formData.paymentMethod,
+        notes: formData.notes.trim(),
       };
 
       const response = await API.post('/orders', orderData);
@@ -165,7 +217,7 @@ export default function Checkout() {
 
                   {/* Address */}
                   <div className="mb-6">
-                    <label className="block text-sm font-bold text-gray-700 mb-3">Delivery Address *</label>
+                    <label className="block text-sm font-bold text-gray-700 mb-3">Delivery Address * <span className="text-xs text-gray-500">(min 10 characters)</span></label>
                     <div className="relative">
                       <FaMapMarkerAlt className="absolute left-4 top-4 text-primary text-lg" />
                       <input
@@ -174,43 +226,51 @@ export default function Checkout() {
                         value={formData.deliveryAddress}
                         onChange={handleChange}
                         required
+                        minLength={10}
+                        maxLength={200}
                         className="w-full pl-12 pr-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary focus:outline-none transition bg-gray-50 focus:bg-white"
                         placeholder="123 Main Street"
                       />
                     </div>
+                    <p className="text-xs text-gray-500 mt-1">Enter your complete delivery address with street and building details</p>
                   </div>
 
                   {/* City and Zip Code */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-3">City *</label>
+                      <label className="block text-sm font-bold text-gray-700 mb-3">City * <span className="text-xs text-gray-500">(min 2 characters)</span></label>
                       <input
                         type="text"
                         name="deliveryCity"
                         value={formData.deliveryCity}
                         onChange={handleChange}
                         required
+                        minLength={2}
+                        maxLength={50}
                         className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary focus:outline-none transition bg-gray-50 focus:bg-white"
                         placeholder="New York"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-3">Zip Code *</label>
+                      <label className="block text-sm font-bold text-gray-700 mb-3">Zip Code * <span className="text-xs text-gray-500">(4-10 digits)</span></label>
                       <input
                         type="text"
                         name="deliveryZipCode"
                         value={formData.deliveryZipCode}
                         onChange={handleChange}
                         required
+                        pattern="[0-9]{4,10}"
+                        maxLength={10}
                         className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary focus:outline-none transition bg-gray-50 focus:bg-white"
                         placeholder="10001"
                       />
+                      <p className="text-xs text-gray-500 mt-1">Numbers only</p>
                     </div>
                   </div>
 
                   {/* Phone Number */}
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">Phone Number *</label>
+                    <label className="block text-sm font-bold text-gray-700 mb-3">Phone Number * <span className="text-xs text-gray-500">(+977 auto-filled)</span></label>
                     <div className="relative">
                       <FaPhone className="absolute left-4 top-4 text-primary text-lg" />
                       <input
@@ -220,9 +280,10 @@ export default function Checkout() {
                         onChange={handleChange}
                         required
                         className="w-full pl-12 pr-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary focus:outline-none transition bg-gray-50 focus:bg-white"
-                        placeholder="+91 98765 43210"
+                        placeholder="+977 98765 43210"
                       />
                     </div>
+                    <p className="text-xs text-gray-500 mt-1">Country code +977 is pre-filled. Enter your 10-digit phone number</p>
                   </div>
                 </div>
 
