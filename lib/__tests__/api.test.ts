@@ -16,9 +16,13 @@ describe('API Module', () => {
     expect(API.defaults.baseURL).toBe('http://localhost:5000/api');
   });
 
+  it('enables credentials for cookie-based auth', () => {
+    expect(API.defaults.withCredentials).toBe(true);
+  });
+
   it('sets authorization header when token exists', () => {
     (Cookies.get as any).mockReturnValue('test-token-123');
-    
+
     const config = { headers: {} };
     API.interceptors.request.handlers[0].fulfilled(config);
 
@@ -27,7 +31,7 @@ describe('API Module', () => {
 
   it('does not set authorization header when token is missing', () => {
     (Cookies.get as any).mockReturnValue(null);
-    
+
     const config = { headers: {} };
     API.interceptors.request.handlers[0].fulfilled(config);
 
@@ -37,13 +41,13 @@ describe('API Module', () => {
   it('removes token and redirects on 401 response', () => {
     delete (window as any).location;
     window.location = { href: 'http://localhost' } as any;
-    
+
     (Cookies.remove as any).mockClear();
-    
+
     const error = {
       response: { status: 401 },
     };
-    
+
     expect(() => {
       API.interceptors.response.handlers[0].rejected(error);
     }).toThrow();

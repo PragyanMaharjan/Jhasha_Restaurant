@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useAuthStore, useCartStore } from '@/lib/store';
 import { useHydration } from '@/lib/storeProvider';
 import { FaShoppingCart, FaSignOutAlt, FaUser, FaHome } from 'react-icons/fa';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function Navbar() {
   const router = useRouter();

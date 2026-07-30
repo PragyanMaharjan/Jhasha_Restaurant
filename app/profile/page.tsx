@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import API from '@/lib/api';
 import { useAuthStore } from '@/lib/store';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import { FaCamera, FaUser, FaPhone, FaMapMarkerAlt, FaCity, FaMailBulk, FaEdit } from 'react-icons/fa';
 import { getErrorMessage } from '@/lib/errorHandler';
+import { getCurrentUser, updateProfile, changePassword, setup2FA, enable2FA, disable2FA } from '@/lib/profile';
 
 export default function Profile() {
   const router = useRouter();
@@ -23,6 +23,33 @@ export default function Profile() {
   const [loading, setLoading] = useState(false);
   const [imagePreview, setImagePreview] = useState<string>('');
   const [isEditing, setIsEditing] = useState(false);
+  const [passwordData, setPasswordData] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' });
+  const [twoFAStatus, setTwoFAStatus] = useState({ enabled: user?.twoFactorEnabled || false, secret: '', qrCodeUrl: '', token: '' });
+  const [_passwordLoading, setPasswordLoading] = useState(false);
+
+  const buildImageUrl = (path: string) => {
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, '') || 'http://localhost:5000';
+    return path.startsWith('http') ? path : `${baseUrl}/${path}`;
+  };
+
+  const fetchProfile = async () => {
+    try {
+      const userData = await getCurrentUser();
+      setFormData({
+        name: userData.name,
+        phone: userData.phone || '',
+        address: userData.address || '',
+        city: userData.city || '',
+        zipCode: userData.zipCode || '',
+      });
+      if (userData.profileImage) {
+        setImagePreview(buildImageUrl(userData.profileImage));
+      }
+      setUser(userData as any);
+    } catch (error: any) {
+      toast.error(getErrorMessage(error, '⚠️ Unable to load your profile. Please refresh the page.'));
+    }
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -36,43 +63,27 @@ export default function Profile() {
       return;
     }
 
-    // Initialize form with stored user data
     if (user) {
       setFormData({
         name: user.name,
-        phone: user.phone,
+        phone: user.phone || '',
         address: user.address || '',
         city: user.city || '',
         zipCode: user.zipCode || '',
       });
 
+      setTwoFAStatus((prev) => ({
+        ...prev,
+        enabled: user.twoFactorEnabled || false,
+      }));
+
       if (user.profileImage) {
-        setImagePreview(`http://localhost:5000/${user.profileImage}`);
+        setImagePreview(buildImageUrl(user.profileImage));
       }
     }
 
-    // Fetch latest profile data from server
     fetchProfile();
   }, [mounted, isAuthenticated, router, user]);
-
-  const fetchProfile = async () => {
-    try {
-      const response = await API.get('/auth/profile');
-      const userData = response.data.user;
-      setFormData({
-        name: userData.name,
-        phone: userData.phone,
-        address: userData.address || '',
-        city: userData.city || '',
-        zipCode: userData.zipCode || '',
-      });
-      if (userData.profileImage) {
-        setImagePreview(`http://localhost:5000/${userData.profileImage}`);
-      }
-    } catch (error: any) {
-      toast.error(getErrorMessage(error, '⚠️ Unable to load your profile. Please refresh the page.'));
-    }
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -93,6 +104,59 @@ export default function Profile() {
     }
   };
 
+  const _handlePasswordSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (passwordData.newPassword !== passwordData.confirmPassword) {
+      toast.error('❌ New passwords do not match');
+      return;
+    }
+
+    try {
+      setPasswordLoading(true);
+      await changePassword(passwordData.currentPassword, passwordData.newPassword);
+      toast.success('✅ Password updated successfully!');
+      setPasswordData({ currentPassword: '', newPassword: '', confirmPassword: '' });
+    } catch (error: any) {
+      toast.error(getErrorMessage(error, '❌ Unable to update your password. Please try again.'));
+    } finally {
+      setPasswordLoading(false);
+    }
+  };
+
+  const _handle2FASetup = async () => {
+    try {
+      const result = await setup2FA();
+      setTwoFAStatus((prev) => ({ ...prev, secret: result.secret, qrCodeUrl: result.qrCodeUrl }));
+    } catch (error: any) {
+      toast.error(getErrorMessage(error, '❌ Unable to start 2FA setup. Please try again.'));
+    }
+  };
+
+  const _handle2FAEnable = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await enable2FA(twoFAStatus.token);
+      setTwoFAStatus((prev) => ({ ...prev, enabled: true, token: '' }));
+      setUser(user ? { ...user, twoFactorEnabled: true } : null);
+      toast.success('✅ Two-factor authentication enabled!');
+    } catch (error: any) {
+      toast.error(getErrorMessage(error, '❌ Unable to enable 2FA. Please check the token and try again.'));
+    }
+  };
+
+  const _handle2FADisable = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await disable2FA(passwordData.currentPassword);
+      setTwoFAStatus((prev) => ({ ...prev, enabled: false, token: '' }));
+      setUser(user ? { ...user, twoFactorEnabled: false } : null);
+      toast.success('✅ Two-factor authentication disabled!');
+      setPasswordData((prev) => ({ ...prev, currentPassword: '' }));
+    } catch (error: any) {
+      toast.error(getErrorMessage(error, '❌ Unable to disable 2FA. Please check your password and try again.'));
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -104,26 +168,19 @@ export default function Profile() {
       formDataToSend.append('address', formData.address);
       formDataToSend.append('city', formData.city);
       formDataToSend.append('zipCode', formData.zipCode);
+
       if (profileImage) {
         formDataToSend.append('profileImage', profileImage);
       }
 
-      const response = await API.put('/auth/profile', formDataToSend, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const updatedUser = await updateProfile(formDataToSend);
+      setUser(updatedUser as any);
 
-      setUser(response.data.user);
-      
-      // Update the displayed profile image
-      if (response.data.user.profileImage) {
-        setImagePreview(`http://localhost:5000/${response.data.user.profileImage}`);
+      if (updatedUser.profileImage) {
+        setImagePreview(buildImageUrl(updatedUser.profileImage));
       }
-      
-      // Clear the file input
+
       setProfileImage(null);
-      
       toast.success('✅ Profile updated successfully!');
       setIsEditing(false);
     } catch (error: any) {
@@ -163,11 +220,11 @@ export default function Profile() {
                   <div className="relative w-40 h-40 mx-auto mb-4">
                     <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden flex items-center justify-center border-4 border-primary/20">
                       {imagePreview ? (
-                        <img 
+                        <img
                           key={imagePreview}
                           src={`${imagePreview}?t=${Date.now()}`}
-                          alt="Profile" 
-                          className="w-full h-full object-cover" 
+                          alt="Profile"
+                          className="w-full h-full object-cover"
                         />
                       ) : (
                         <div className="text-6xl">👤</div>

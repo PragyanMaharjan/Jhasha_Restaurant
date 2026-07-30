@@ -11,7 +11,7 @@ import { getErrorMessage } from '@/lib/errorHandler';
 
 export default function Register() {
   const router = useRouter();
-  const { setUser, setToken } = useAuthStore();
+  const { setUser: _setUser, setToken: _setToken } = useAuthStore();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +19,7 @@ export default function Register() {
     password: '',
     confirmPassword: '',
   });
-  const [profileImage, setProfileImage] = useState<File | null>(null);
+  const [_profileImage, setProfileImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -46,7 +46,7 @@ export default function Register() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (formData.password !== formData.confirmPassword) {
       toast.error('❌ Passwords do not match');
       return;
@@ -54,21 +54,17 @@ export default function Register() {
 
     try {
       setLoading(true);
-      
-      const data = new FormData();
-      data.append('name', formData.name);
-      data.append('email', formData.email);
-      data.append('phone', formData.phone);
-      data.append('password', formData.password);
-      data.append('confirmPassword', formData.confirmPassword);
-      if (profileImage) {
-        data.append('profileImage', profileImage);
-      }
-      
-      const response = await API.post('/auth/register', data, {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      });
-      
+
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        password: formData.password,
+        confirmPassword: formData.confirmPassword,
+      };
+
+      await API.post('/auth/register', payload);
+
       toast.success('🎉 Registration successful! Please login to continue.');
       router.push('/login');
     } catch (error: any) {

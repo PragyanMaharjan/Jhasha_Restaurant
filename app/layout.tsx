@@ -23,7 +23,7 @@ export default function RootLayout({
           <main className="min-h-screen">
             {children}
           </main>
-          <ToastContainer 
+          <ToastContainer
             position="top-right"
             autoClose={3000}
             hideProgressBar={false}

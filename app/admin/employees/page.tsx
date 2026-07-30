@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import API from '@/lib/api';
+// API import removed — not used in this file
 import { useAuthStore } from '@/lib/store';
 import AdminSidebar from '@/components/AdminSidebar';
 import { toast } from 'react-toastify';

@@ -2,16 +2,16 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import API from '@/lib/api';
 import { useAuthStore, useCartStore } from '@/lib/store';
 import { toast } from 'react-toastify';
 import { FaMapMarkerAlt, FaPhone, FaCreditCard, FaStickyNote, FaCheckCircle, FaTruck, FaFileInvoice } from 'react-icons/fa';
 import { getErrorMessage } from '@/lib/errorHandler';
+import { prepareOrder } from '@/lib/orders';
 
 export default function Checkout() {
   const router = useRouter();
   const { isAuthenticated, user } = useAuthStore();
-  const { cart, total, clearCart } = useCartStore();
+  const { cart, total, clearCart, hydrateCart } = useCartStore();
   const [mounted, setMounted] = useState(false);
   const [orderPlaced, setOrderPlaced] = useState(false);
 
@@ -31,6 +31,10 @@ export default function Checkout() {
 
   useEffect(() => {
     if (!mounted) return;
+
+    if (isAuthenticated) {
+      void hydrateCart();
+    }
 
     if (!isAuthenticated) {
       router.push('/login');
@@ -52,7 +56,7 @@ export default function Checkout() {
       } else if (userPhone && !userPhone.includes(' ')) {
         userPhone = userPhone.slice(0, 4) + ' ' + userPhone.slice(4);
       }
-      
+
       setFormData((prev) => ({
         ...prev,
         deliveryAddress: user.address || '',
@@ -101,7 +105,7 @@ export default function Checkout() {
     }
 
     // Validate phone number
-    const phoneRegex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,9}$/;
+    const phoneRegex = /^\+?\(?\d{1,4}\)?[-\s.]?\d{1,4}[-\s.]?\d{1,9}$/;
     if (!phoneNumber || !phoneRegex.test(phoneNumber.trim())) {
       toast.error('❌ Please enter a valid phone number');
       return false;
@@ -120,33 +124,35 @@ export default function Checkout() {
     try {
       setLoading(true);
 
-      const orderData = {
-        items: cart.map((item) => ({
-          foodId: item._id,
-          quantity: item.quantity,
-          price: item.price,
-        })),
-        totalAmount: parseFloat(grandTotal),
-        deliveryAddress: formData.deliveryAddress.trim(),
-        deliveryCity: formData.deliveryCity.trim(),
-        deliveryZipCode: formData.deliveryZipCode.trim(),
-        phoneNumber: formData.phoneNumber.trim(),
-        paymentMethod: formData.paymentMethod,
+      const order = await prepareOrder({
+        shippingAddress: {
+          fullName: user?.name || user?.email || 'Customer',
+          phone: formData.phoneNumber.trim(),
+          address: formData.deliveryAddress.trim(),
+          city: formData.deliveryCity.trim(),
+          postalCode: formData.deliveryZipCode.trim(),
+          country: 'Nepal',
+        },
+        paymentMethod: formData.paymentMethod === 'online' ? 'esewa' : 'cash_on_delivery',
         notes: formData.notes.trim(),
-      };
+      });
 
-      const response = await API.post('/orders', orderData);
-      const orderId = response.data.order._id;
+      const orderId = order?._id;
 
-      // Mark order as placed to prevent cart redirect
+      if (!orderId) {
+        throw new Error('The backend did not return an order id.');
+      }
+
       setOrderPlaced(true);
-      
-      // Clear cart before redirect
-      clearCart();
-      
-      // Show success message and redirect
-      toast.success('✅ Order placed successfully!');
-      router.push(`/order-confirmation/${orderId}`);
+      void clearCart();
+
+      if (formData.paymentMethod === 'online') {
+        toast.success('✅ Order prepared successfully. Redirecting to payment.');
+        router.push(`/payment?orderId=${orderId}`);
+      } else {
+        toast.success('✅ Order placed successfully!');
+        router.push(`/order-confirmation/${orderId}`);
+      }
     } catch (error: any) {
       toast.error(getErrorMessage(error, '❌ Unable to place your order. Please try again.'));
     } finally {
@@ -400,7 +406,7 @@ export default function Checkout() {
               {/* Info Box */}
               <div className="mt-6 bg-blue-50 border-2 border-blue-200 rounded-lg p-3">
                 <p className="text-xs font-bold text-blue-900">ℹ️ Order Placed</p>
-                <p className="text-xs text-blue-700 mt-1">You'll receive a confirmation email shortly.</p>
+                <p className="text-xs text-blue-700 mt-1">You&apos;ll receive a confirmation email shortly.</p>
               </div>
 
               {/* Trust Badges */}

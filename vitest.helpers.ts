@@ -1,5 +1,5 @@
 // vitest.helpers.ts - Reusable test utilities and mock factories
-import { vi } from 'vitest';
+import { expect, vi } from 'vitest';
 import Cookies from 'js-cookie';
 
 vi.mock('js-cookie');
@@ -54,7 +54,7 @@ export const createMockAPI = () => ({
 export const setupMockStores = (authOverrides = {}, cartOverrides = {}) => {
   const mockAuthStore = createMockAuthStore(authOverrides);
   const mockCartStore = createMockCartStore(cartOverrides);
-  
+
   return { mockAuthStore, mockCartStore };
 };
 

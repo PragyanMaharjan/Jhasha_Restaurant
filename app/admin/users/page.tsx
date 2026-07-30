@@ -104,12 +104,12 @@ export default function AdminUsers() {
 
   const createUser = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (newUser.password !== newUser.confirmPassword) {
       toast.error('❌ Passwords do not match');
       return;
     }
-    
+
     try {
       const formData = new FormData();
       formData.append('name', newUser.name);
@@ -120,11 +120,11 @@ export default function AdminUsers() {
       if (profileImage) {
         formData.append('profileImage', profileImage);
       }
-      
+
       await API.post('/auth/register', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
-      
+
       fetchUsers();
       setShowCreateModal(false);
       setNewUser({ name: '', email: '', phone: '', password: '', confirmPassword: '' });
@@ -149,7 +149,7 @@ export default function AdminUsers() {
 
   const updateUser = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     try {
       const formData = new FormData();
       formData.append('name', editUser.name);
@@ -158,11 +158,11 @@ export default function AdminUsers() {
       if (profileImage) {
         formData.append('profileImage', profileImage);
       }
-      
+
       await API.put(`/admin/users/${editUser._id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
-      
+
       fetchUsers();
       setShowEditModal(false);
       setEditUser({ _id: '', name: '', email: '', phone: '' });
@@ -305,11 +305,12 @@ export default function AdminUsers() {
                       <td className="p-4">
                         <button
                           onClick={() => toggleUserStatus(u._id, u.isActive)}
-                          className={`flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm transition transform hover:scale-105 ${
-                            u.isActive
+                          className={
+                            `flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm transition transform hover:scale-105 ` +
+                            (u.isActive
                               ? 'bg-green-100 text-green-700 hover:bg-green-200'
-                              : 'bg-red-100 text-red-700 hover:bg-red-200'
-                          }`}
+                              : 'bg-red-100 text-red-700 hover:bg-red-200')
+                          }
                         >
                           {u.isActive ? <FaToggleOn size={18} /> : <FaToggleOff size={18} />}
                           {u.isActive ? 'Active' : 'Inactive'}
@@ -497,7 +498,7 @@ export default function AdminUsers() {
                   </label>
                 </div>
               </div>
-              
+
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-2">Full Name *</label>
                 <input
@@ -599,7 +600,7 @@ export default function AdminUsers() {
                   </label>
                 </div>
               </div>
-              
+
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-2">Full Name *</label>
                 <input

@@ -29,7 +29,7 @@ export function useFetch<T>(url: string, options: FetchOptions = { immediate: tr
 
   const fetchData = async () => {
     setState(prev => ({ ...prev, loading: true, error: null }));
-    
+
     try {
       const response = await API.get(url);
       setState({

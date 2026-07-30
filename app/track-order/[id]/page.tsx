@@ -145,7 +145,11 @@ export default function OrderTracking() {
               {typeof tracking.estimatedDelivery !== 'string' && (
                 <div className="flex items-center gap-2 text-lg text-gray-700">
                   <FaClock className="text-primary" />
-                  <span>Estimated arrival: <strong>{tracking.estimatedDelivery.time}</strong> ({tracking.estimatedDelivery.minutes} mins)</span>
+                  <div>
+                    <span>Estimated arrival: </span>
+                    <strong>{tracking.estimatedDelivery.time}</strong>
+                    <span> ({tracking.estimatedDelivery.minutes} mins)</span>
+                  </div>
                 </div>
               )}
               {typeof tracking.estimatedDelivery === 'string' && (
@@ -153,16 +157,16 @@ export default function OrderTracking() {
               )}
             </div>
             <div className="text-5xl">
-              {tracking.currentStatus === 'Delivered' ? '🎉' : 
-               tracking.currentStatus === 'Out for Delivery' ? '🚴' : 
-               tracking.currentStatus === 'Preparing' ? '👨‍🍳' : 
-               tracking.currentStatus === 'Confirmed' ? '✅' : '📝'}
+              {tracking.currentStatus === 'Delivered' ? '🎉' :
+                tracking.currentStatus === 'Out for Delivery' ? '🚴' :
+                  tracking.currentStatus === 'Preparing' ? '👨‍🍳' :
+                    tracking.currentStatus === 'Confirmed' ? '✅' : '📝'}
             </div>
           </div>
 
           {/* Progress Bar */}
           <div className="relative h-3 bg-gray-200 rounded-full overflow-hidden">
-            <div 
+            <div
               className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-red-600 rounded-full transition-all duration-1000"
               style={{ width: `${tracking.statusPercentage}%` }}
             />
@@ -200,8 +204,8 @@ export default function OrderTracking() {
               <div key={index} className="flex gap-4">
                 <div className="relative">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center text-2xl ${
-                    item.completed 
-                      ? 'bg-gradient-to-br from-primary to-red-600 text-white shadow-lg' 
+                    item.completed
+                      ? 'bg-gradient-to-br from-primary to-red-600 text-white shadow-lg'
                       : 'bg-gray-200'
                   }`}>
                     {item.completed ? <FaCheckCircle /> : item.icon}
@@ -222,7 +226,7 @@ export default function OrderTracking() {
                     </p>
                   )}
                   {item.notes && (
-                    <p className="text-sm text-gray-700 mt-2 italic">"{item.notes}"</p>
+                    <p className="text-sm text-gray-700 mt-2 italic">&quot;{item.notes}&quot;</p>
                   )}
                 </div>
               </div>
@@ -236,7 +240,7 @@ export default function OrderTracking() {
           <div className="space-y-4 mb-6">
             {order.items.map((item, index) => (
               <div key={index} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-                <img 
+                <img
                   src={`http://localhost:5000/${item.foodId.image}`}
                   alt={item.foodId.name}
                   className="w-16 h-16 object-cover rounded-lg"

@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import API from '@/lib/api';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaFacebook, FaInstagram, FaTwitter, FaUsers, FaTrophy, FaHeart } from 'react-icons/fa';
-import Image from 'next/image';
 
 interface Achievement {
   _id?: string;
@@ -196,7 +195,7 @@ export default function AboutUsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-2xl shadow-xl p-8 md:p-12">
           <h2 className="text-4xl font-bold mb-8 text-center">Visit Us</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div className="flex items-start">
@@ -290,7 +289,7 @@ export default function AboutUsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-4">🇳🇵 Proudly Serving Nepal 🇳🇵</h2>
           <p className="text-xl max-w-3xl mx-auto">
-            From the heart of Kathmandu to homes across Nepal, we bring authentic flavors with love and dedication. 
+            From the heart of Kathmandu to homes across Nepal, we bring authentic flavors with love and dedication.
             Jhasha Restaurant - A taste of home, delivered with pride.
           </p>
         </div>

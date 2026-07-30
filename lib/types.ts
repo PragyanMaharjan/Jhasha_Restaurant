@@ -8,6 +8,7 @@ export interface User {
   address?: string;
   city?: string;
   zipCode?: string;
+  twoFactorEnabled?: boolean;
   isActive: boolean;
   createdAt: string;
 }
@@ -39,13 +40,16 @@ export interface FoodItem {
 
 export interface CartItem extends FoodItem {
   quantity: number;
+  cartItemId?: string;
+  productId?: string;
 }
 
 export interface CartState {
   cart: CartItem[];
   total: number;
-  addToCart: (food: FoodItem) => void;
-  removeFromCart: (foodId: string) => void;
-  updateQuantity: (foodId: string, quantity: number) => void;
-  clearCart: () => void;
+  hydrateCart: () => Promise<void>;
+  addToCart: (food: FoodItem) => Promise<void>;
+  removeFromCart: (foodId: string) => Promise<void>;
+  updateQuantity: (foodId: string, quantity: number) => Promise<void>;
+  clearCart: () => Promise<void>;
 }

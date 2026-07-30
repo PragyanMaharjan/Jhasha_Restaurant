@@ -11,9 +11,10 @@ vi.mock('next/navigation', () => ({
 
 vi.mock('../../../lib/store', () => ({
   useCartStore: () => ({
-    items: [{ _id: '1', name: 'Test Food', price: 10, quantity: 2 }],
+    cart: [{ _id: '1', name: 'Test Food', price: 10, quantity: 2 }],
     total: 20,
-    clearCart: vi.fn(),
+    hydrateCart: vi.fn().mockResolvedValue(undefined),
+    clearCart: vi.fn().mockResolvedValue(undefined),
   }),
   useAuthStore: () => ({
     user: { _id: '1', name: 'Test' },

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useAuthStore } from '@/lib/store';
 import API from '@/lib/api';
+import { updateProfile } from '@/lib/profile';
 import { toast } from 'react-toastify';
 import { FaUser, FaEnvelope, FaLock, FaCamera, FaEye, FaEyeSlash, FaSave } from 'react-icons/fa';
 import Image from 'next/image';
@@ -15,7 +16,7 @@ export default function AdminProfile() {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -31,6 +32,11 @@ export default function AdminProfile() {
   const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string>('');
 
+  const buildImageUrl = (path: string) => {
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, '') || 'http://localhost:5000';
+    return path.startsWith('http') ? path : `${baseUrl}/${path}`;
+  };
+
   useEffect(() => {
     if (user) {
       setFormData({
@@ -39,7 +45,7 @@ export default function AdminProfile() {
         profileImage: user.profileImage || '',
       });
       if (user.profileImage) {
-        setPhotoPreview(user.profileImage);
+        setPhotoPreview(buildImageUrl(user.profileImage));
       }
     }
   }, [user]);
@@ -81,16 +87,17 @@ export default function AdminProfile() {
       formDataToSend.append('name', formData.name);
       formDataToSend.append('email', formData.email);
       if (photoFile) {
-        formDataToSend.append('photo', photoFile);
+        formDataToSend.append('profileImage', photoFile);
       }
 
-      const response = await API.put('/auth/profile', formDataToSend, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      setUser(response.data.user);
+      const updatedUser = await updateProfile(formDataToSend);
+      setUser(updatedUser);
+      if (updatedUser.profileImage) {
+        const imageUrl = updatedUser.profileImage.startsWith('http')
+          ? updatedUser.profileImage
+          : `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/${updatedUser.profileImage}`;
+        setPhotoPreview(imageUrl);
+      }
       toast.success('✅ Profile updated successfully!');
       setIsEditing(false);
       setPhotoFile(null);
@@ -112,7 +119,7 @@ export default function AdminProfile() {
     try {
       setLoading(true);
 
-      await API.post('/auth/change-password', {
+      await API.put('/users/password', {
         currentPassword: passwordData.currentPassword,
         newPassword: passwordData.newPassword,
       });

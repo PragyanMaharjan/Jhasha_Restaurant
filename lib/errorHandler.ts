@@ -33,7 +33,7 @@ export const getErrorMessage = (error: any, fallbackMessage: string): string => 
     case 401:
       return '🔒 Session expired. Please log in again.';
     case 403:
-      return '🚫 You don\'t have permission to perform this action.';
+      return serverMessage || '🚫 You don\'t have permission to perform this action.';
     case 404:
       return '🔍 The requested resource was not found.';
     case 409:

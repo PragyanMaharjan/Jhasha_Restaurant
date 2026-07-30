@@ -16,14 +16,8 @@ vi.mock('../../../lib/store', () => ({
   }),
 }));
 
-vi.mock('../../../lib/api', () => ({
-  default: {
-    get: vi.fn(() => Promise.resolve({ 
-      data: { 
-        orders: [{ _id: '1', total: 100, status: 'pending' }] 
-      } 
-    })),
-  },
+vi.mock('../../../lib/orders', () => ({
+  getMyOrders: vi.fn(() => Promise.resolve([{ _id: '1', totalAmount: 100, orderStatus: 'pending', items: [] }])),
 }));
 
 describe('My Orders Page', () => {

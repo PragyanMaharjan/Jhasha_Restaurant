@@ -46,25 +46,31 @@ export default function Login() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Prevent multiple submissions
     if (loading) return;
-    
+
     try {
       setLoading(true);
-      
+
       console.log('Attempting login with:', { email: formData.email });
-      
+
       const response = await API.post('/auth/login', formData);
-      
+
       console.log('Login successful:', response.data);
-      
-      // Set token first, then user - this ensures auth state is properly updated
-      setToken(response.data.token);
-      setUser(response.data.user);
-      
+
+      const token = response.data?.token || null;
+      const userData = response.data?.data?.user || response.data?.user || null;
+
+      if (token) {
+        setToken(token);
+      }
+      if (userData) {
+        setUser(userData);
+      }
+
       toast.success('🎉 Login successful!');
-      
+
       // Use replace instead of push to prevent back button issues
       if (response.data.user.role === 'admin') {
         router.replace('/admin/dashboard');
@@ -78,7 +84,7 @@ export default function Login() {
         error: error.message,
         credentials: { email: formData.email } // Don't log password
       });
-      
+
       // More specific error message for 401
       let errorMessage;
       if (error.response?.status === 401) {
@@ -86,7 +92,7 @@ export default function Login() {
       } else {
         errorMessage = getErrorMessage(error, '❌ Unable to log in. Please try again.');
       }
-      
+
       toast.error(errorMessage, {
         position: 'top-right',
         autoClose: 5000,
@@ -133,22 +139,24 @@ export default function Login() {
                 <button
                   type="button"
                   onClick={() => setLoginType('user')}
-                  className={`flex-1 py-2 px-4 rounded-md font-bold text-sm transition flex items-center justify-center gap-2 ${
-                    loginType === 'user'
+                  className={
+                    `flex-1 py-2 px-4 rounded-md font-bold text-sm transition flex items-center justify-center gap-2 ` +
+                    (loginType === 'user'
                       ? 'bg-gradient-to-r from-primary to-red-600 text-white shadow-md'
-                      : 'text-gray-600 hover:text-gray-900'
-                  }`}
+                      : 'text-gray-600 hover:text-gray-900')
+                  }
                 >
                   <FaUser /> Customer Login
                 </button>
                 <button
                   type="button"
                   onClick={() => setLoginType('admin')}
-                  className={`flex-1 py-2 px-4 rounded-md font-bold text-sm transition flex items-center justify-center gap-2 ${
-                    loginType === 'admin'
+                  className={
+                    `flex-1 py-2 px-4 rounded-md font-bold text-sm transition flex items-center justify-center gap-2 ` +
+                    (loginType === 'admin'
                       ? 'bg-gradient-to-r from-primary to-red-600 text-white shadow-md'
-                      : 'text-gray-600 hover:text-gray-900'
-                  }`}
+                      : 'text-gray-600 hover:text-gray-900')
+                  }
                 >
                   <FaUserShield /> Admin Login
                 </button>

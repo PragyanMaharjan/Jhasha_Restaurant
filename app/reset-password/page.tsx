@@ -44,13 +44,12 @@ function ResetPasswordContent() {
       setLoading(true);
       await API.post('/auth/reset-password', {
         resetToken: token,
-        newPassword: formData.newPassword,
-        confirmPassword: formData.confirmPassword,
+        password: formData.newPassword,
       });
 
       setResetSuccess(true);
       toast.success('✅ Password reset successful!');
-      
+
       // Redirect to login after 3 seconds
       setTimeout(() => {
         router.push('/login');
@@ -224,7 +223,7 @@ function ResetPasswordContent() {
           <p className="text-xs font-bold text-blue-900 mb-1">🔒 Security Tips</p>
           <ul className="text-xs text-blue-800 space-y-1">
             <li>• Use a strong, unique password</li>
-            <li>• Don't reuse passwords from other sites</li>
+            <li>• Don&apos;t reuse passwords from other sites</li>
             <li>• Consider using a password manager</li>
           </ul>
         </div>

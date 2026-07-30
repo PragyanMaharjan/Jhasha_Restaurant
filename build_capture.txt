@@ -1,0 +1,703 @@
+﻿
+> jhasha-restaurant-frontend@1.0.0 build
+> next build
+
+  Γû▓ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+node.exe : 
+At C:\Program 
+Files\nodejs\npm.ps1:29 char:3
++   & $NODE_EXE $NPM_CLI_JS 
+$args
++   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          :  
+   NotSpecified: (:String) []  
+  , RemoteException
+    + FullyQualifiedErrorId :  
+   NativeCommandError
+ 
+Failed to compile.
+
+./app/admin/about/page.tsx
+8:35  Warning: 'FaUpload' is 
+defined but never used. 
+Allowed unused vars must match 
+/^_/u.  @typescript-eslint/no-u
+nused-vars
+85:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 'fetchAboutUs'. 
+Either include it or remove 
+the dependency array.  
+react-hooks/exhaustive-deps
+103:63  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+148:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+161:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+181:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+
+./app/admin/active-deliveries/p
+age.tsx
+54:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+84:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+146:1  Warning: This line has 
+a length of 122. Maximum 
+allowed is 120.  max-len
+
+./app/admin/categories/page.tsx
+57:19  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+77:19  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+88:19  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+
+./app/admin/dashboard/page.tsx
+8:65  Warning: 'FaCheckCircle' 
+is defined but never used. 
+Allowed unused vars must match 
+/^_/u.  @typescript-eslint/no-u
+nused-vars
+8:124  Warning: 'FaArrowDown' 
+is defined but never used. 
+Allowed unused vars must match 
+/^_/u.  @typescript-eslint/no-u
+nused-vars
+124:72  Error: `'` can be 
+escaped with `&apos;`, 
+`&lsquo;`, `&#39;`, `&rsquo;`. 
+ react/no-unescaped-entities
+124:79  Error: `'` can be 
+escaped with `&apos;`, 
+`&lsquo;`, `&#39;`, `&rsquo;`. 
+ react/no-unescaped-entities
+272:1  Warning: This line has 
+a length of 127. Maximum 
+allowed is 120.  max-len
+
+./app/admin/employees/page.tsx
+5:8  Warning: 'API' is defined 
+but never used. Allowed unused 
+vars must match /^_/u.  @typesc
+ript-eslint/no-unused-vars
+97:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+110:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+210:23  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+
+./app/admin/food/page.tsx
+52:39  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+102:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+264:25  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+
+./app/admin/orders/page.tsx
+67:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 'router'. Either 
+include it or remove the 
+dependency array.  
+react-hooks/exhaustive-deps
+
+./app/admin/profile/page.tsx
+104:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+133:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+
+./app/admin/users/page.tsx
+46:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 'fetchUsers'. 
+Either include it or remove 
+the dependency array.  
+react-hooks/exhaustive-deps
+88:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+134:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+172:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+270:31  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+308:1  Warning: This line has 
+a length of 142. Maximum 
+allowed is 120.  max-len
+397:21  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+480:23  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+582:23  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+
+./app/admin/users/[id]/edit/pag
+e.tsx
+48:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 
+'fetchUserDetails'. Either 
+include it or remove the 
+dependency array.  
+react-hooks/exhaustive-deps
+68:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+111:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+161:21  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+
+./app/admin/users/[id]/page.tsx
+10:1  Warning: This line has a 
+length of 138. Maximum allowed 
+is 120.  max-len
+46:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 
+'fetchUserDetails'. Either 
+include it or remove the 
+dependency array.  
+react-hooks/exhaustive-deps
+54:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+84:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+151:19  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+292:1  Warning: This line has 
+a length of 126. Maximum 
+allowed is 120.  max-len
+
+./app/cart/page.tsx
+7:8  Warning: 'API' is defined 
+but never used. Allowed unused 
+vars must match /^_/u.  @typesc
+ript-eslint/no-unused-vars
+100:23  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+
+./app/checkout/page.tsx
+68:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 'hydrateCart'. 
+Either include it or remove 
+the dependency array.  
+react-hooks/exhaustive-deps
+156:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+409:62  Error: `'` can be 
+escaped with `&apos;`, 
+`&lsquo;`, `&#39;`, `&rsquo;`. 
+ react/no-unescaped-entities
+
+./app/forgot-password/page.tsx
+18:7  Warning: Unexpected 
+console statement.  no-console
+19:7  Warning: Unexpected 
+console statement.  no-console
+25:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+68:51  Error: `'` can be 
+escaped with `&apos;`, 
+`&lsquo;`, `&#39;`, `&rsquo;`. 
+ react/no-unescaped-entities
+
+./app/hooks/useFetch.ts
+54:6  Warning: React Hook 
+useEffect has missing 
+dependencies: 'fetchData' and 
+'options.immediate'. Either 
+include them or remove the 
+dependency array.  
+react-hooks/exhaustive-deps
+69:33  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+69:42  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+82:55  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+
+./app/hooks/useForm.ts
+22:50  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+37:59  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+
+./app/login/page.tsx
+56:7  Warning: Unexpected 
+console statement.  no-console
+60:7  Warning: Unexpected 
+console statement.  no-console
+80:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+142:1  Warning: This line has 
+a length of 128. Maximum 
+allowed is 120.  max-len
+153:1  Warning: This line has 
+a length of 128. Maximum 
+allowed is 120.  max-len
+
+./app/my-orders/page.tsx
+16:10  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+139:1  Warning: This line has 
+a length of 136. Maximum 
+allowed is 120.  max-len
+
+./app/order-confirmation/[id]/p
+age.tsx
+11:9  Warning: 'router' is 
+assigned a value but never 
+used. Allowed unused vars must 
+match /^_/u.  @typescript-eslin
+t/no-unused-vars
+13:38  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+25:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 'fetchOrder'. 
+Either include it or remove 
+the dependency array.  
+react-hooks/exhaustive-deps
+119:39  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+124:25  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+181:21  Error: `'` can be 
+escaped with `&apos;`, 
+`&lsquo;`, `&#39;`, `&rsquo;`. 
+ react/no-unescaped-entities
+193:52  Error: `'` can be 
+escaped with `&apos;`, 
+`&lsquo;`, `&#39;`, `&rsquo;`. 
+ react/no-unescaped-entities
+
+./app/page.tsx
+23:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 'fetchFoods'. 
+Either include it or remove 
+the dependency array.  
+react-hooks/exhaustive-deps
+63:9  Warning: 
+'categoryEmojis' is assigned a 
+value but never used. Allowed 
+unused vars must match /^_/u.  
+@typescript-eslint/no-unused-va
+rs
+
+./app/payment/page.tsx
+3:21  Warning: 'useMemo' is 
+defined but never used. 
+Allowed unused vars must match 
+/^_/u.  @typescript-eslint/no-u
+nused-vars
+11:9  Warning: 'router' is 
+assigned a value but never 
+used. Allowed unused vars must 
+match /^_/u.  @typescript-eslin
+t/no-unused-vars
+
+./app/profile/page.tsx
+7:81  Warning: 'FaLock' is 
+defined but never used. 
+Allowed unused vars must match 
+/^_/u.  @typescript-eslint/no-u
+nused-vars
+28:10  Warning: 
+'passwordLoading' is assigned 
+a value but never used. 
+Allowed unused vars must match 
+/^_/u.  @typescript-eslint/no-u
+nused-vars
+48:27  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+49:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+86:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 'fetchProfile'. 
+Either include it or remove 
+the dependency array.  
+react-hooks/exhaustive-deps
+107:9  Warning: 
+'handlePasswordSubmit' is 
+assigned a value but never 
+used. Allowed unused vars must 
+match /^_/u.  @typescript-eslin
+t/no-unused-vars
+119:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+126:9  Warning: 
+'handle2FASetup' is assigned a 
+value but never used. Allowed 
+unused vars must match /^_/u.  
+@typescript-eslint/no-unused-va
+rs
+130:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+135:9  Warning: 
+'handle2FAEnable' is assigned 
+a value but never used. 
+Allowed unused vars must match 
+/^_/u.  @typescript-eslint/no-u
+nused-vars
+142:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+147:9  Warning: 
+'handle2FADisable' is assigned 
+a value but never used. 
+Allowed unused vars must match 
+/^_/u.  @typescript-eslint/no-u
+nused-vars
+155:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+177:30  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+186:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+223:25  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+
+./app/register/page.tsx
+14:11  Warning: 'setUser' is 
+assigned a value but never 
+used. Allowed unused vars must 
+match /^_/u.  @typescript-eslin
+t/no-unused-vars
+14:20  Warning: 'setToken' is 
+assigned a value but never 
+used. Allowed unused vars must 
+match /^_/u.  @typescript-eslin
+t/no-unused-vars
+22:10  Warning: 'profileImage' 
+is assigned a value but never 
+used. Allowed unused vars must 
+match /^_/u.  @typescript-eslin
+t/no-unused-vars
+70:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+108:23  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+
+./app/reset-password/page.tsx
+57:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+226:22  Error: `'` can be 
+escaped with `&apos;`, 
+`&lsquo;`, `&#39;`, `&rsquo;`. 
+ react/no-unescaped-entities
+
+./app/reset-password/[token]/pa
+ge.tsx
+43:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+
+./app/track-order/[id]/page.tsx
+85:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 
+'fetchOrderTracking'. Either 
+include it or remove the 
+dependency array.  
+react-hooks/exhaustive-deps
+92:21  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+148:1  Warning: This line has 
+a length of 144. Maximum 
+allowed is 120.  max-len
+225:70  Error: `"` can be 
+escaped with `&quot;`, 
+`&ldquo;`, `&#34;`, `&rdquo;`. 
+ react/no-unescaped-entities
+225:83  Error: `"` can be 
+escaped with `&quot;`, 
+`&ldquo;`, `&#34;`, `&rdquo;`. 
+ react/no-unescaped-entities
+239:17  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+
+./components/FoodCard.tsx
+7:8  Warning: 'Image' is 
+defined but never used. 
+Allowed unused vars must match 
+/^_/u.  @typescript-eslint/no-u
+nused-vars
+54:9  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may 
+incur additional usage or cost 
+from your provider. See: https:
+//nextjs.org/docs/messages/no-i
+mg-element  
+@next/next/no-img-element
+90:1  Warning: This line has a 
+length of 121. Maximum allowed 
+is 120.  max-len
+
+./lib/errorHandler.ts
+6:11  Warning: 'ApiError' is 
+defined but never used. 
+Allowed unused vars must match 
+/^_/u.  @typescript-eslint/no-u
+nused-vars
+20:40  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+61:48  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+
+./lib/profile.ts
+52:63  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+
+./lib/store.ts
+53:1  Warning: This line has a 
+length of 129. Maximum allowed 
+is 120.  max-len
+55:38  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+58:30  Warning: Unexpected 
+any. Specify a different type. 
+ @typescript-eslint/no-explicit
+-any
+166:1  Warning: This line has 
+a length of 159. Maximum 
+allowed is 120.  max-len
+174:1  Warning: This line has 
+a length of 159. Maximum 
+allowed is 120.  max-len
+
+info  - Need to disable some 
+ESLint rules? Learn more here: 
+https://nextjs.org/docs/basic-f
+eatures/eslint#disabling-rules

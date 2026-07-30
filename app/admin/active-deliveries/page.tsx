@@ -126,7 +126,7 @@ export default function ActiveDeliveries() {
         ) : (
           <div className="grid grid-cols-1 gap-6">
             {deliveries.map((delivery, index) => (
-              <div 
+              <div
                 key={delivery.id}
                 className="card hover:shadow-2xl transition-all duration-300 animate-slideInUp"
                 style={{ animationDelay: `${index * 0.1}s` }}
@@ -143,12 +143,18 @@ export default function ActiveDeliveries() {
                       <div>
                         <h3 className="text-2xl font-black text-gray-900">{delivery.orderNumber}</h3>
                         <div className="flex items-center gap-3 mt-2">
-                          <span className={`px-3 py-1 rounded-full text-sm font-bold ${getStatusColor(delivery.status)}`}>
+                          <span
+                            className={
+                              `px-3 py-1 rounded-full text-sm font-bold ` +
+                              getStatusColor(delivery.status)
+                            }>
+
                             {delivery.status}
                           </span>
                           <span className="flex items-center gap-1 text-sm text-gray-600">
                             <FaClock className="text-primary" />
-                            ETA: {delivery.estimatedDelivery.time} ({delivery.estimatedDelivery.minutes} mins)
+                            <span className="ml-1">ETA: {delivery.estimatedDelivery.time}</span>
+                            <span className="ml-2">({delivery.estimatedDelivery.minutes} mins)</span>
                           </span>
                         </div>
                       </div>
@@ -194,7 +200,7 @@ export default function ActiveDeliveries() {
                           <FaEye /> View Details
                         </button>
                       </Link>
-                      
+
                       {delivery.status === 'Confirmed' && (
                         <button
                           onClick={() => handleUpdateStatus(delivery.id, 'Preparing')}
@@ -203,7 +209,7 @@ export default function ActiveDeliveries() {
                           👨‍🍳 Mark as Preparing
                         </button>
                       )}
-                      
+
                       {delivery.status === 'Preparing' && (
                         <button
                           onClick={() => handleUpdateStatus(delivery.id, 'Out for Delivery')}
@@ -212,7 +218,7 @@ export default function ActiveDeliveries() {
                           🚴 Mark Out for Delivery
                         </button>
                       )}
-                      
+
                       {delivery.status === 'Out for Delivery' && (
                         <button
                           onClick={() => handleUpdateStatus(delivery.id, 'Delivered')}

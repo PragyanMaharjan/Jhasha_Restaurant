@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/lib/store';
 import API from '@/lib/api';
 import AdminSidebar from '@/components/AdminSidebar';
-import { FaSave, FaPlus, FaTrash, FaUpload } from 'react-icons/fa';
+import { FaSave, FaPlus, FaTrash } from 'react-icons/fa';
 
 interface Achievement {
   _id?: string;
@@ -40,7 +40,7 @@ interface AboutUsData {
 export default function AdminAboutPage() {
   const router = useRouter();
   const { user } = useAuthStore();
-  
+
   const [formData, setFormData] = useState<AboutUsData>({
     title: '',
     description: '',
@@ -165,7 +165,7 @@ export default function AdminAboutPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Phone validation for Nepal
     const phoneRegex = /^\+977[- ]?[9][6-9]\d{8}$/;
     if (!phoneRegex.test(formData.phone)) {
@@ -200,7 +200,7 @@ export default function AdminAboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
       <AdminSidebar />
-      
+
       <div className="ml-64 p-8">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-bold text-white mb-8">Manage About Us Page</h1>
@@ -217,7 +217,7 @@ export default function AdminAboutPage() {
             {/* Basic Information */}
             <div className="bg-gray-800 rounded-xl p-6">
               <h2 className="text-2xl font-bold text-white mb-4">Basic Information</h2>
-              
+
               <div className="space-y-4">
                 <div>
                   <label className="block text-gray-300 mb-2">Title</label>
@@ -281,7 +281,7 @@ export default function AdminAboutPage() {
             {/* Contact Information */}
             <div className="bg-gray-800 rounded-xl p-6">
               <h2 className="text-2xl font-bold text-white mb-4">Contact Information</h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-gray-300 mb-2">Address</label>
@@ -334,7 +334,7 @@ export default function AdminAboutPage() {
             {/* Statistics */}
             <div className="bg-gray-800 rounded-xl p-6">
               <h2 className="text-2xl font-bold text-white mb-4">Statistics</h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-gray-300 mb-2">Team Size</label>
@@ -377,7 +377,7 @@ export default function AdminAboutPage() {
             {/* Specialties */}
             <div className="bg-gray-800 rounded-xl p-6">
               <h2 className="text-2xl font-bold text-white mb-4">Our Specialties</h2>
-              
+
               <div className="flex gap-2 mb-4">
                 <input
                   type="text"
@@ -415,7 +415,7 @@ export default function AdminAboutPage() {
             {/* Achievements */}
             <div className="bg-gray-800 rounded-xl p-6">
               <h2 className="text-2xl font-bold text-white mb-4">Achievements</h2>
-              
+
               <div className="space-y-4 mb-6">
                 <div>
                   <label className="block text-gray-300 mb-2">Achievement Title</label>
@@ -489,7 +489,7 @@ export default function AdminAboutPage() {
             {/* Social Media */}
             <div className="bg-gray-800 rounded-xl p-6">
               <h2 className="text-2xl font-bold text-white mb-4">Social Media</h2>
-              
+
               <div className="space-y-4">
                 <div>
                   <label className="block text-gray-300 mb-2">Facebook URL</label>

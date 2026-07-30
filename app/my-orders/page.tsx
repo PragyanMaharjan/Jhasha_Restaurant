@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import API from '@/lib/api';
 import { useAuthStore } from '@/lib/store';
+import { getMyOrders } from '@/lib/orders';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
 import { FaBox, FaClock, FaCheckCircle, FaTruck, FaTimesCircle, FaArrowRight } from 'react-icons/fa';
@@ -40,8 +40,8 @@ export default function MyOrders() {
 
   const fetchOrders = async () => {
     try {
-      const response = await API.get('/orders');
-      setOrders(response.data.orders);
+      const ordersResponse = await getMyOrders();
+      setOrders(ordersResponse);
     } catch (error) {
       toast.error('Failed to load orders');
     } finally {
@@ -133,7 +133,8 @@ export default function MyOrders() {
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-3">
                         <p className="font-black text-lg text-gray-900">
-                          Order #{order._id.slice(-6).toUpperCase()}
+                          Order #
+                          {order._id.slice(-6).toUpperCase()}
                         </p>
                         <span
                           className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold border-2 ${getStatusColor(
@@ -141,7 +142,8 @@ export default function MyOrders() {
                           )}`}
                         >
                           {getStatusIcon(order.orderStatus)}
-                          {order.orderStatus.charAt(0).toUpperCase() + order.orderStatus.slice(1)}
+                          {order.orderStatus.charAt(0).toUpperCase()}
+                          {order.orderStatus.slice(1)}
                         </span>
                       </div>
 

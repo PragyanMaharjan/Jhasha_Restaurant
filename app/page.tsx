@@ -2,28 +2,46 @@
 
 import { useEffect, useState } from 'react';
 import API from '@/lib/api';
-import FoodCard from '@/components/FoodCard';
+// import FoodCard from '@/components/FoodCard';
 import type { FoodItem } from '@/lib/types';
 import { toast } from 'react-toastify';
 import { FaSearch, FaFire } from 'react-icons/fa';
 
 export default function Home() {
   const [foods, setFoods] = useState<FoodItem[]>([]);
+  const [categories, setCategories] = useState<{ id: string; label: string; emoji: string }[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [loading, setLoading] = useState(true);
 
-  const categories = [
-    { id: 'starter', label: '🥘 Starter', emoji: '🥘' },
-    { id: 'main_course', label: '🍛 Main Course', emoji: '🍛' },
-    { id: 'dessert', label: '🍰 Dessert', emoji: '🍰' },
-    { id: 'beverage', label: '🥤 Beverage', emoji: '🥤' },
-    { id: 'side_dish', label: '🥗 Side Dish', emoji: '🥗' },
-  ];
+  useEffect(() => {
+    fetchCategories();
+  }, []);
 
   useEffect(() => {
     fetchFoods();
   }, [selectedCategory, searchTerm]);
+
+  const fetchCategories = async () => {
+    try {
+      const response = await API.get('/categories');
+      const categoryList = response.data?.data?.categories ?? [];
+      const mappedCategories = categoryList.map((category: { name: string; slug?: string }) => ({
+        id: category.slug || category.name.toLowerCase().replace(/\s+/g, '-'),
+        label: category.name,
+        emoji: '🍽️',
+      }));
+      setCategories(mappedCategories);
+    } catch (error) {
+      setCategories([
+        { id: 'starter', label: '🥘 Starter', emoji: '🥘' },
+        { id: 'main_course', label: '🍛 Main Course', emoji: '🍛' },
+        { id: 'dessert', label: '🍰 Dessert', emoji: '🍰' },
+        { id: 'beverage', label: '🥤 Beverage', emoji: '🥤' },
+        { id: 'side_dish', label: '🥗 Side Dish', emoji: '🥗' },
+      ]);
+    }
+  };
 
   const fetchFoods = async () => {
     try {
@@ -32,8 +50,9 @@ export default function Home() {
       if (selectedCategory) params.append('category', selectedCategory);
       if (searchTerm) params.append('search', searchTerm);
 
-      const response = await API.get(`/food?${params.toString()}`);
-      setFoods(response.data.foods);
+      const response = await API.get(`/products?${params.toString()}`);
+      const products = response.data?.data?.products ?? [];
+      setFoods(products);
     } catch (error) {
       toast.error('Failed to fetch foods');
     } finally {
@@ -41,7 +60,7 @@ export default function Home() {
     }
   };
 
-  const categoryEmojis: { [key: string]: string } = {
+  const _categoryEmojis: { [key: string]: string } = {
     starter: '🥘',
     main_course: '🍛',
     dessert: '🍰',
@@ -140,7 +159,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {foods.map((food, index) => (
                 <div key={food._id} style={{ animationDelay: `${index * 0.1}s` }} className="animate-slideInUp">
-                  <FoodCard food={food} />
+                  {/* <FoodCard food={food} /> */}
                 </div>
               ))}
             </div>

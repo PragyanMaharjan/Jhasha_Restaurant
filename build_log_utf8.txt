@@ -1,0 +1,790 @@
+﻿
+> jhasha-restaurant-frontend@1.0.0 build C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant
+> next build
+
+  Γû▓ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+node.exe : 
+At C:\Users\A S P I R E 7\AppData\Roaming\npm\pnpm.ps1:24 char:5
++     & "node$exe"  "$basedir/node_modules/pnpm/bin/pnpm.cjs" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Failed to compile.
+
+./app/about/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+6:8  Error: 'Image' is defined but never used.  no-unused-vars
+199:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+293:116  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./app/admin/about/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+8:35  Error: 'FaUpload' is defined but never used.  no-unused-vars
+43:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+85:6  Warning: React Hook useEffect has a missing dependency: 'fetchAboutUs'. Either include it or 
+remove the dependency array.  react-hooks/exhaustive-deps
+166:34  Error: 'React' is not defined.  no-undef
+168:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+203:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+220:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+284:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+337:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+380:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+418:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+492:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./app/admin/active-deliveries/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+129:19  Error: Trailing spaces not allowed.  no-trailing-spaces
+146:1  Warning: This line has a length of 122. Maximum allowed is 120.  max-len
+197:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+206:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+215:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./app/admin/categories/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+49:36  Error: 'React' is not defined.  no-undef
+67:36  Error: 'React' is not defined.  no-undef
+
+./app/admin/dashboard/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+8:65  Error: 'FaCheckCircle' is defined but never used.  no-unused-vars
+8:124  Error: 'FaArrowDown' is defined but never used.  no-unused-vars
+124:72  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  
+react/no-unescaped-entities
+124:79  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  
+react/no-unescaped-entities
+272:1  Warning: This line has a length of 127. Maximum allowed is 120.  max-len
+
+./app/admin/employees/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+5:8  Error: 'API' is defined but never used.  no-unused-vars
+83:36  Error: 'React' is not defined.  no-undef
+210:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/admin/food/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+64:34  Error: 'React' is not defined.  no-undef
+264:25  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/admin/orders/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+67:6  Warning: React Hook useEffect has a missing dependency: 'router'. Either include it or remove the 
+dependency array.  react-hooks/exhaustive-deps
+140:1  Error: Expected indentation of 30 spaces but found 28.  indent
+141:1  Error: Expected indentation of 30 spaces but found 28.  indent
+149:30  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./app/admin/profile/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+19:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+53:33  Error: 'React' is not defined.  no-undef
+61:36  Error: 'React' is not defined.  no-undef
+69:33  Error: 'React' is not defined.  no-undef
+81:41  Error: 'React' is not defined.  no-undef
+111:42  Error: 'React' is not defined.  no-undef
+
+./app/admin/users/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+46:6  Warning: React Hook useEffect has a missing dependency: 'fetchUsers'. Either include it or remove 
+the dependency array.  react-hooks/exhaustive-deps
+93:33  Error: 'React' is not defined.  no-undef
+105:32  Error: 'React' is not defined.  no-undef
+107:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+112:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+123:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+127:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+150:32  Error: 'React' is not defined.  no-undef
+152:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+161:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+165:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+270:31  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+308:1  Warning: This line has a length of 142. Maximum allowed is 120.  max-len
+397:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+480:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+500:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+582:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+602:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./app/admin/users/[id]/edit/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+27:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+48:6  Warning: React Hook useEffect has a missing dependency: 'fetchUserDetails'. Either include it or 
+remove the dependency array.  react-hooks/exhaustive-deps
+55:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+76:33  Error: 'React' is not defined.  no-undef
+88:34  Error: 'React' is not defined.  no-undef
+100:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+161:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/admin/users/[id]/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+10:1  Warning: This line has a length of 138. Maximum allowed is 120.  max-len
+33:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+46:6  Warning: React Hook useEffect has a missing dependency: 'fetchUserDetails'. Either include it or 
+remove the dependency array.  react-hooks/exhaustive-deps
+151:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+292:1  Warning: This line has a length of 126. Maximum allowed is 120.  max-len
+
+./app/cart/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+7:8  Error: 'API' is defined but never used.  no-unused-vars
+100:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/checkout/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+59:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+68:6  Warning: React Hook useEffect has a missing dependency: 'hydrateCart'. Either include it or 
+remove the dependency array.  react-hooks/exhaustive-deps
+70:28  Error: 'React' is not defined.  no-undef
+108:27  Error: Unnecessary escape character: \+.  no-useless-escape
+108:53  Error: Unnecessary escape character: \..  no-useless-escape
+108:79  Error: Unnecessary escape character: \..  no-useless-escape
+117:34  Error: 'React' is not defined.  no-undef
+409:62  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  
+react/no-unescaped-entities
+
+./app/forgot-password/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+14:34  Error: 'React' is not defined.  no-undef
+18:7  Warning: Unexpected console statement.  no-console
+19:7  Warning: Unexpected console statement.  no-console
+20:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+22:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+34:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+68:51  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  
+react/no-unescaped-entities
+
+./app/hooks/useAuth.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./app/hooks/useCart.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+59:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./app/hooks/useFetch.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+32:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+54:6  Warning: React Hook useEffect has missing dependencies: 'fetchData' and 'options.immediate'. 
+Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/hooks/useForm.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+11:15  Error: 'values' is defined but never used.  no-unused-vars
+12:14  Error: 'values' is defined but never used.  no-unused-vars
+71:47  Error: 'React' is not defined.  no-undef
+
+./app/hooks/__tests__/useAuth.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./app/hooks/__tests__/useCart.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+1:27  Error: 'waitFor' is defined but never used.  no-unused-vars
+
+./app/hooks/__tests__/useFetch.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./app/hooks/__tests__/useForm.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+199:9  Error: 'capturedStates' is assigned a value but never used.  no-unused-vars
+205:21  Error: 'rerender' is assigned a value but never used.  no-unused-vars
+
+./app/layout.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+16:13  Error: 'React' is not defined.  no-undef
+26:26  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./app/login/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+40:28  Error: 'React' is not defined.  no-undef
+47:34  Error: 'React' is not defined.  no-undef
+49:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+52:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+55:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+56:7  Warning: Unexpected console statement.  no-console
+57:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+59:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+60:7  Warning: Unexpected console statement.  no-console
+61:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+64:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+71:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+73:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+87:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+95:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+142:1  Warning: This line has a length of 128. Maximum allowed is 120.  max-len
+153:1  Warning: This line has a length of 128. Maximum allowed is 120.  max-len
+
+./app/my-orders/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+139:1  Warning: This line has a length of 136. Maximum allowed is 120.  max-len
+
+./app/order-confirmation/[id]/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+11:9  Error: 'router' is assigned a value but never used.  no-unused-vars
+25:6  Warning: React Hook useEffect has a missing dependency: 'fetchOrder'. Either include it or remove 
+the dependency array.  react-hooks/exhaustive-deps
+124:25  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+181:21  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  
+react/no-unescaped-entities
+193:52  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  
+react/no-unescaped-entities
+
+./app/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+23:6  Warning: React Hook useEffect has a missing dependency: 'fetchFoods'. Either include it or remove 
+the dependency array.  react-hooks/exhaustive-deps
+63:9  Error: 'categoryEmojis' is assigned a value but never used.  no-unused-vars
+
+./app/payment/failure/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./app/payment/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+3:21  Error: 'useMemo' is defined but never used.  no-unused-vars
+11:9  Error: 'router' is assigned a value but never used.  no-unused-vars
+16:34  Error: 'React' is not defined.  no-undef
+
+./app/payment/success/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./app/profile/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+7:81  Error: 'FaLock' is defined but never used.  no-unused-vars
+7:89  Error: 'FaShieldAlt' is defined but never used.  no-unused-vars
+7:102  Error: 'FaShieldCheck' is defined but never used.  no-unused-vars
+28:10  Error: 'passwordLoading' is assigned a value but never used.  no-unused-vars
+29:10  Error: 'twoFALoading' is assigned a value but never used.  no-unused-vars
+30:10  Error: 'twoFAMessage' is assigned a value but never used.  no-unused-vars
+88:6  Warning: React Hook useEffect has a missing dependency: 'fetchProfile'. Either include it or 
+remove the dependency array.  react-hooks/exhaustive-deps
+90:28  Error: 'React' is not defined.  no-undef
+97:33  Error: 'React' is not defined.  no-undef
+109:9  Error: 'handlePasswordSubmit' is assigned a value but never used.  no-unused-vars
+109:42  Error: 'React' is not defined.  no-undef
+128:9  Error: 'handle2FASetup' is assigned a value but never used.  no-unused-vars
+141:9  Error: 'handle2FAEnable' is assigned a value but never used.  no-unused-vars
+141:37  Error: 'React' is not defined.  no-undef
+157:9  Error: 'handle2FADisable' is assigned a value but never used.  no-unused-vars
+157:38  Error: 'React' is not defined.  no-undef
+174:34  Error: 'React' is not defined.  no-undef
+237:25  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+237:29  Error: Trailing spaces not allowed.  no-trailing-spaces
+240:40  Error: Trailing spaces not allowed.  no-trailing-spaces
+241:65  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./app/register/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+14:11  Error: 'setUser' is assigned a value but never used.  no-unused-vars
+14:20  Error: 'setToken' is assigned a value but never used.  no-unused-vars
+22:10  Error: 'profileImage' is assigned a value but never used.  no-unused-vars
+28:28  Error: 'React' is not defined.  no-undef
+35:33  Error: 'React' is not defined.  no-undef
+47:34  Error: 'React' is not defined.  no-undef
+49:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+57:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+65:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+67:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+108:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/reset-password/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+25:34  Error: 'React' is not defined.  no-undef
+52:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+226:22  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  
+react/no-unescaped-entities
+
+./app/reset-password/[token]/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+20:28  Error: 'React' is not defined.  no-undef
+27:34  Error: 'React' is not defined.  no-undef
+
+./app/track-order/[id]/page.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+85:6  Warning: React Hook useEffect has a missing dependency: 'fetchOrderTracking'. Either include it 
+or remove the dependency array.  react-hooks/exhaustive-deps
+148:1  Warning: This line has a length of 144. Maximum allowed is 120.  max-len
+156:63  Error: Trailing spaces not allowed.  no-trailing-spaces
+157:1  Error: Expected indentation of 16 spaces but found 15.  indent
+157:70  Error: Trailing spaces not allowed.  no-trailing-spaces
+158:1  Error: Expected indentation of 18 spaces but found 15.  indent
+158:66  Error: Trailing spaces not allowed.  no-trailing-spaces
+159:1  Error: Expected indentation of 20 spaces but found 15.  indent
+165:17  Error: Trailing spaces not allowed.  no-trailing-spaces
+203:35  Error: Trailing spaces not allowed.  no-trailing-spaces
+204:89  Error: Trailing spaces not allowed.  no-trailing-spaces
+225:70  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  
+react/no-unescaped-entities
+225:83  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  
+react/no-unescaped-entities
+239:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+239:21  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./app/__tests__/about.test.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./app/__tests__/cart.test.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+2:18  Error: 'screen' is defined but never used.  no-unused-vars
+
+./app/__tests__/checkout.test.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./app/__tests__/forgot-password.test.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./app/__tests__/login.test.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./app/__tests__/my-orders.test.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./app/__tests__/page.test.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+3:8  Error: 'userEvent' is defined but never used.  no-unused-vars
+45:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./app/__tests__/payments.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./app/__tests__/profile.test.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./app/__tests__/register.test.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+2:18  Error: 'screen' is defined but never used.  no-unused-vars
+
+./components/AdminSidebar.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./components/FoodCard.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+4:8  Error: 'API' is defined but never used.  no-unused-vars
+8:8  Error: 'Image' is defined but never used.  no-unused-vars
+55:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image 
+/>` from `next/image` to automatically optimize images. This may incur additional usage or cost from 
+your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+91:1  Warning: This line has a length of 121. Maximum allowed is 120.  max-len
+
+./components/Navbar.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+8:20  Error: 'useEffect' is defined but never used.  no-unused-vars
+
+./components/__tests__/AdminSidebar.test.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+18:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+25:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+36:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+38:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+45:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+51:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./components/__tests__/FoodCard.test.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+1:26  Error: 'fireEvent' is defined but never used.  no-unused-vars
+1:37  Error: 'within' is defined but never used.  no-unused-vars
+2:32  Error: 'vi' is defined but never used.  no-unused-vars
+20:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+28:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+34:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+42:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+48:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+54:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+60:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+67:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+75:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+82:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./components/__tests__/Navbar.test.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./lib/api.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./lib/errorHandler.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+6:11  Error: 'ApiError' is defined but never used.  no-unused-vars
+
+./lib/orders.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./lib/payments.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./lib/profile.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./lib/store.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+53:1  Warning: This line has a length of 129. Maximum allowed is 120.  max-len
+166:1  Warning: This line has a length of 159. Maximum allowed is 120.  max-len
+174:1  Warning: This line has a length of 159. Maximum allowed is 120.  max-len
+
+./lib/storeProvider.tsx
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./lib/types.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+19:13  Error: 'user' is defined but never used.  no-unused-vars
+20:14  Error: 'token' is defined but never used.  no-unused-vars
+50:15  Error: 'food' is defined but never used.  no-unused-vars
+51:20  Error: 'foodId' is defined but never used.  no-unused-vars
+52:20  Error: 'foodId' is defined but never used.  no-unused-vars
+52:36  Error: 'quantity' is defined but never used.  no-unused-vars
+
+./lib/__tests__/api.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+4:8  Error: 'axios' is defined but never used.  no-unused-vars
+25:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+34:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+44:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+46:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+50:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./lib/__tests__/errorHandler.comprehensive.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+184:18  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./lib/__tests__/errorHandler.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+1:34  Error: 'it' is defined but never used.  no-unused-vars
+10:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+12:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+26:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+28:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+39:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+41:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+51:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+53:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+64:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+66:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+76:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+78:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+91:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+93:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+104:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+106:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+119:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+121:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+132:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+134:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+144:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+146:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+157:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+159:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+170:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+172:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+185:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+187:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+201:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+203:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+213:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+215:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+225:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+227:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+240:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+242:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+256:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+258:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+264:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+270:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+276:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+278:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+284:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+286:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+297:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+299:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+310:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+312:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+320:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+326:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+332:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+341:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+343:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+351:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+353:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+361:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+363:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+371:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+373:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+383:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+385:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+394:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+396:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+404:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+406:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+412:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+414:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+420:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+422:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+428:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./lib/__tests__/orders.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./lib/__tests__/payments.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./lib/__tests__/profile.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+
+./lib/__tests__/store.comprehensive.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+49:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+50:13  Error: 'state' is assigned a value but never used.  no-unused-vars
+51:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+93:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+104:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+123:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+470:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+520:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+523:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+
+./lib/__tests__/store.test.ts
+1:1  Error: Definition for rule '@typescript-eslint/no-explicit-any' was not found.  
+@typescript-eslint/no-explicit-any
+1:1  Error: Definition for rule '@typescript-eslint/no-unused-vars' was not found.  
+@typescript-eslint/no-unused-vars
+1:48  Error: 'afterEach' is defined but never used.  no-unused-vars
+29:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+40:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+48:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+51:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+61:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+69:1  Error: Trailing spaces not allowed.  no-trailing-spaces
+153:13  Error: 'currentCart' is assigned a value but never used.  no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: 
+https://nextjs.org/docs/basic-features/eslint#disabling-rules
+ΓÇëELIFECYCLEΓÇë Command failed with exit code 1.

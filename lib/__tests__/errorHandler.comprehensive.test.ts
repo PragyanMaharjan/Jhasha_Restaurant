@@ -181,7 +181,7 @@ describe('errorHandler - Comprehensive Coverage', () => {
       const error = {
         response: {
           status: 400,
-          data: { 
+          data: {
             message: 'Message text',
             error: 'Error text'
           }

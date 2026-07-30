@@ -1,0 +1,273 @@
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\about\page.tsx
+    6:8    warning  'Image' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  199:1    error    Trailing spaces not allowed                                              no-trailing-spaces
+  293:116  error    Trailing spaces not allowed                                              no-trailing-spaces
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\admin\about\page.tsx
+    8:35  warning  'FaUpload' is defined but never used. Allowed unused vars must match /^_/u                                       @typescript-eslint/no-unused-vars
+   43:1   error    Trailing spaces not allowed                                                                                      no-trailing-spaces
+   85:6   warning  React Hook useEffect has a missing dependency: 'fetchAboutUs'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  103:63  warning  Unexpected any. Specify a different type                                                                         @typescript-eslint/no-explicit-any
+  148:21  warning  Unexpected any. Specify a different type                                                                         @typescript-eslint/no-explicit-any
+  161:21  warning  Unexpected any. Specify a different type                                                                         @typescript-eslint/no-explicit-any
+  168:1   error    Trailing spaces not allowed                                                                                      no-trailing-spaces
+  181:21  warning  Unexpected any. Specify a different type                                                                         @typescript-eslint/no-explicit-any
+  203:1   error    Trailing spaces not allowed                                                                                      no-trailing-spaces
+  220:1   error    Trailing spaces not allowed                                                                                      no-trailing-spaces
+  284:1   error    Trailing spaces not allowed                                                                                      no-trailing-spaces
+  337:1   error    Trailing spaces not allowed                                                                                      no-trailing-spaces
+  380:1   error    Trailing spaces not allowed                                                                                      no-trailing-spaces
+  418:1   error    Trailing spaces not allowed                                                                                      no-trailing-spaces
+  492:1   error    Trailing spaces not allowed                                                                                      no-trailing-spaces
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\admin\active-deliveries\page.tsx
+   54:21  warning  Unexpected any. Specify a different type               @typescript-eslint/no-explicit-any
+   84:21  warning  Unexpected any. Specify a different type               @typescript-eslint/no-explicit-any
+  129:19  error    Trailing spaces not allowed                            no-trailing-spaces
+  146:1   warning  This line has a length of 122. Maximum allowed is 120  max-len
+  197:1   error    Trailing spaces not allowed                            no-trailing-spaces
+  206:1   error    Trailing spaces not allowed                            no-trailing-spaces
+  215:1   error    Trailing spaces not allowed                            no-trailing-spaces
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\admin\categories\page.tsx
+  57:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  77:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  88:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\admin\dashboard\page.tsx
+    8:65   warning  'FaCheckCircle' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+    8:124  warning  'FaArrowDown' is defined but never used. Allowed unused vars must match /^_/u    @typescript-eslint/no-unused-vars
+  124:72   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                  react/no-unescaped-entities
+  124:79   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                  react/no-unescaped-entities
+  272:1    warning  This line has a length of 127. Maximum allowed is 120                            max-len
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\admin\employees\page.tsx
+    5:8   warning  'API' is defined but never used. Allowed unused vars must match /^_/u                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+   97:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  110:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  210:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\admin\food\page.tsx
+   52:39  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  102:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  264:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\admin\orders\page.tsx
+   67:6   warning  React Hook useEffect has a missing dependency: 'router'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  140:1   error    Expected indentation of 30 spaces but found 28                                                             indent
+  141:1   error    Expected indentation of 30 spaces but found 28                                                             indent
+  149:30  error    Trailing spaces not allowed                                                                                no-trailing-spaces
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\admin\profile\page.tsx
+   19:1   error    Trailing spaces not allowed               no-trailing-spaces
+  104:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  133:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\admin\users\[id]\edit\page.tsx
+   27:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+   48:6   warning  React Hook useEffect has a missing dependency: 'fetchUserDetails'. Either include it or remove the dependency array                                                                                                                                             react-hooks/exhaustive-deps
+   55:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+   68:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  100:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  111:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  161:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\admin\users\[id]\page.tsx
+   10:1   warning  This line has a length of 138. Maximum allowed is 120                                                                                                                                                                                                           max-len
+   33:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+   46:6   warning  React Hook useEffect has a missing dependency: 'fetchUserDetails'. Either include it or remove the dependency array                                                                                                                                             react-hooks/exhaustive-deps
+   54:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+   84:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  151:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  292:1   warning  This line has a length of 126. Maximum allowed is 120                                                                                                                                                                                                           max-len
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\admin\users\page.tsx
+   46:6   warning  React Hook useEffect has a missing dependency: 'fetchUsers'. Either include it or remove the dependency array                                                                                                                                                   react-hooks/exhaustive-deps
+   88:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  107:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  112:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  123:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  127:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  134:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  152:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  161:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  165:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  172:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  270:31  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  308:1   warning  This line has a length of 142. Maximum allowed is 120                                                                                                                                                                                                           max-len
+  397:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  480:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  500:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  582:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  602:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\cart\page.tsx
+    7:8   warning  'API' is defined but never used. Allowed unused vars must match /^_/u                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+  100:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\checkout\page.tsx
+   59:1   error    Trailing spaces not allowed                                                                                     no-trailing-spaces
+   68:6   warning  React Hook useEffect has a missing dependency: 'hydrateCart'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  108:27  error    Unnecessary escape character: \+                                                                                no-useless-escape
+  108:53  error    Unnecessary escape character: \.                                                                                no-useless-escape
+  108:79  error    Unnecessary escape character: \.                                                                                no-useless-escape
+  156:21  warning  Unexpected any. Specify a different type                                                                        @typescript-eslint/no-explicit-any
+  409:62  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                 react/no-unescaped-entities
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\forgot-password\page.tsx
+  18:7   warning  Unexpected console statement                                     no-console
+  19:7   warning  Unexpected console statement                                     no-console
+  20:1   error    Trailing spaces not allowed                                      no-trailing-spaces
+  22:1   error    Trailing spaces not allowed                                      no-trailing-spaces
+  25:21  warning  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  34:1   error    Trailing spaces not allowed                                      no-trailing-spaces
+  68:51  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\hooks\useCart.ts
+  59:1  error  Trailing spaces not allowed  no-trailing-spaces
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\hooks\useFetch.ts
+  32:1   error    Trailing spaces not allowed                                                                                                             no-trailing-spaces
+  54:6   warning  React Hook useEffect has missing dependencies: 'fetchData' and 'options.immediate'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  69:33  warning  Unexpected any. Specify a different type                                                                                                @typescript-eslint/no-explicit-any
+  69:42  warning  Unexpected any. Specify a different type                                                                                                @typescript-eslint/no-explicit-any
+  82:55  warning  Unexpected any. Specify a different type                                                                                                @typescript-eslint/no-explicit-any
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\hooks\useForm.ts
+  22:50  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  37:59  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\layout.tsx
+  26:26  error  Trailing spaces not allowed  no-trailing-spaces
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\login\page.tsx
+   49:1   error    Trailing spaces not allowed                            no-trailing-spaces
+   52:1   error    Trailing spaces not allowed                            no-trailing-spaces
+   55:1   error    Trailing spaces not allowed                            no-trailing-spaces
+   56:7   warning  Unexpected console statement                           no-console
+   57:1   error    Trailing spaces not allowed                            no-trailing-spaces
+   59:1   error    Trailing spaces not allowed                            no-trailing-spaces
+   60:7   warning  Unexpected console statement                           no-console
+   61:1   error    Trailing spaces not allowed                            no-trailing-spaces
+   64:1   error    Trailing spaces not allowed                            no-trailing-spaces
+   71:1   error    Trailing spaces not allowed                            no-trailing-spaces
+   73:1   error    Trailing spaces not allowed                            no-trailing-spaces
+   80:21  warning  Unexpected any. Specify a different type               @typescript-eslint/no-explicit-any
+   87:1   error    Trailing spaces not allowed                            no-trailing-spaces
+   95:1   error    Trailing spaces not allowed                            no-trailing-spaces
+  142:1   warning  This line has a length of 128. Maximum allowed is 120  max-len
+  153:1   warning  This line has a length of 128. Maximum allowed is 120  max-len
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\my-orders\page.tsx
+   16:10  warning  Unexpected any. Specify a different type               @typescript-eslint/no-explicit-any
+  139:1   warning  This line has a length of 136. Maximum allowed is 120  max-len
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\order-confirmation\[id]\page.tsx
+   11:9   warning  'router' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                                                                               @typescript-eslint/no-unused-vars
+   13:38  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+   25:6   warning  React Hook useEffect has a missing dependency: 'fetchOrder'. Either include it or remove the dependency array                                                                                                                                                   react-hooks/exhaustive-deps
+  119:39  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  124:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  181:21  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                 react/no-unescaped-entities
+  193:52  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                 react/no-unescaped-entities
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\page.tsx
+  23:6  warning  React Hook useEffect has a missing dependency: 'fetchFoods'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  63:9  warning  'categoryEmojis' is assigned a value but never used. Allowed unused vars must match /^_/u                      @typescript-eslint/no-unused-vars
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\payment\page.tsx
+   3:21  warning  'useMemo' is defined but never used. Allowed unused vars must match /^_/u          @typescript-eslint/no-unused-vars
+  11:9   warning  'router' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\profile\page.tsx
+    7:81  warning  'FaLock' is defined but never used. Allowed unused vars must match /^_/u                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+   28:10  warning  'passwordLoading' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                                                                      @typescript-eslint/no-unused-vars
+   48:27  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+   49:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+   86:6   warning  React Hook useEffect has a missing dependency: 'fetchProfile'. Either include it or remove the dependency array                                                                                                                                                 react-hooks/exhaustive-deps
+  107:9   warning  'handlePasswordSubmit' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                                                                 @typescript-eslint/no-unused-vars
+  119:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  126:9   warning  'handle2FASetup' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                                                                       @typescript-eslint/no-unused-vars
+  130:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  135:9   warning  'handle2FAEnable' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                                                                      @typescript-eslint/no-unused-vars
+  142:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  147:9   warning  'handle2FADisable' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                                                                     @typescript-eslint/no-unused-vars
+  155:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  177:30  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  186:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  223:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  223:29  error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  226:40  error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  227:65  error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\register\page.tsx
+   14:11  warning  'setUser' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                                                                              @typescript-eslint/no-unused-vars
+   14:20  warning  'setToken' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                                                                             @typescript-eslint/no-unused-vars
+   22:10  warning  'profileImage' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                                                                         @typescript-eslint/no-unused-vars
+   49:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+   57:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+   65:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+   67:1   error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+   70:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  108:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\reset-password\[token]\page.tsx
+  43:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\reset-password\page.tsx
+   52:1   error    Trailing spaces not allowed                                      no-trailing-spaces
+   57:21  warning  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  226:22  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\app\track-order\[id]\page.tsx
+   85:6   warning  React Hook useEffect has a missing dependency: 'fetchOrderTracking'. Either include it or remove the dependency array                                                                                                                                           react-hooks/exhaustive-deps
+   92:21  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  148:1   warning  This line has a length of 144. Maximum allowed is 120                                                                                                                                                                                                           max-len
+  156:63  error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  157:1   error    Expected indentation of 16 spaces but found 15                                                                                                                                                                                                                  indent
+  157:70  error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  158:1   error    Expected indentation of 18 spaces but found 15                                                                                                                                                                                                                  indent
+  158:66  error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  159:1   error    Expected indentation of 20 spaces but found 15                                                                                                                                                                                                                  indent
+  165:17  error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  203:35  error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  204:89  error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+  225:70  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                 react/no-unescaped-entities
+  225:83  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                 react/no-unescaped-entities
+  239:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  239:21  error    Trailing spaces not allowed                                                                                                                                                                                                                                     no-trailing-spaces
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\components\FoodCard.tsx
+   4:8  warning  'API' is defined but never used. Allowed unused vars must match /^_/u                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+   8:8  warning  'Image' is defined but never used. Allowed unused vars must match /^_/u                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  55:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  91:1  warning  This line has a length of 121. Maximum allowed is 120                                                                                                                                                                                                           max-len
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\components\Navbar.tsx
+  8:20  warning  'useEffect' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\lib\errorHandler.ts
+   6:11  warning  'ApiError' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  20:40  warning  Unexpected any. Specify a different type                                    @typescript-eslint/no-explicit-any
+  61:48  warning  Unexpected any. Specify a different type                                    @typescript-eslint/no-explicit-any
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\lib\profile.ts
+  52:63  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\lib\store.ts
+   53:1   warning  This line has a length of 129. Maximum allowed is 120  max-len
+   55:38  warning  Unexpected any. Specify a different type               @typescript-eslint/no-explicit-any
+   58:30  warning  Unexpected any. Specify a different type               @typescript-eslint/no-explicit-any
+  166:1   warning  This line has a length of 159. Maximum allowed is 120  max-len
+  174:1   warning  This line has a length of 159. Maximum allowed is 120  max-len
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\playwright.config.ts
+  10:1  error  Trailing spaces not allowed  no-trailing-spaces
+
+C:\Users\A S P I R E 7\NepDeals\Jhasha_Restaurant\vitest.setup.ts
+  35:43  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 197 problems (81 errors, 116 warnings)
+  69 errors and 0 warnings potentially fixable with the `--fix` option.
+

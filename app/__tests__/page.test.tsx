@@ -31,7 +31,9 @@ const mockFoods = [
 describe('Home Page', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    (API.get as any).mockResolvedValue({ data: { foods: mockFoods } });
+    (API.get as any)
+      .mockResolvedValueOnce({ data: { success: true, data: { categories: [{ name: 'Starter', slug: 'starter' }] } } })
+      .mockResolvedValueOnce({ data: { success: true, data: { products: mockFoods } } });
   });
 
   it('renders home page', () => {
@@ -40,7 +42,7 @@ describe('Home Page', () => {
         <Home />
       </StoreProvider>
     );
-    
+
     expect(screen.getByText(/Welcome to/i)).toBeInTheDocument();
   });
 
@@ -76,8 +78,7 @@ describe('Home Page', () => {
     expect(screen.getByText(/authentic flavors/i)).toBeInTheDocument();
   });
 
-  it('calls API with search parameters when filter changes', async () => {
-    const user = userEvent.setup();
+  it('fetches categories from the backend on mount', async () => {
     render(
       <StoreProvider>
         <Home />
@@ -85,7 +86,7 @@ describe('Home Page', () => {
     );
 
     await waitFor(() => {
-      expect(API.get).toHaveBeenCalledWith(expect.stringContaining('/food'));
+      expect(API.get).toHaveBeenCalledWith('/categories');
     });
   });
 

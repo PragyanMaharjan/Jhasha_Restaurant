@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import API from '@/lib/api';
 import { useAuthStore } from '@/lib/store';
 import AdminSidebar from '@/components/AdminSidebar';
-import { FaUsers, FaShoppingCart, FaBox, FaDollarSign, FaClock, FaCheckCircle, FaTruck, FaUserTie, FaChartLine, FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import { FaUsers, FaShoppingCart, FaBox, FaDollarSign, FaClock, FaTruck, FaUserTie, FaChartLine, FaArrowUp } from 'react-icons/fa';
 import Link from 'next/link';
 
 interface Stats {
@@ -121,7 +121,7 @@ export default function AdminDashboard() {
           <h1 className="text-4xl font-black text-gray-900 flex items-center gap-3 mb-2">
             <FaChartLine className="text-primary" /> Admin Dashboard
           </h1>
-          <p className="text-gray-600">Welcome back, {user?.name}! Here's what's happening today.</p>
+          <p className="text-gray-600">Welcome back, {user?.name}! Here&apos;s what&apos;s happening today.</p>
         </div>
 
         {loading ? (
@@ -266,10 +266,18 @@ export default function AdminDashboard() {
                         <div className="text-right mr-3">
                           <p className="font-black text-primary">Rs.{order.totalAmount.toFixed(0)}</p>
                           <p className="text-xs text-gray-600">
-                            {new Date(order.createdAt).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' })}
+                            {new Date(order.createdAt).toLocaleDateString(
+                              'en-IN',
+                              { month: 'short', day: 'numeric' }
+                            )}
                           </p>
                         </div>
-                        <span className={`px-3 py-1 rounded-full text-xs font-bold ${getOrderStatusColor(order.orderStatus)}`}>
+                        <span
+                          className={
+                            `px-3 py-1 rounded-full text-xs font-bold ` +
+                            getOrderStatusColor(order.orderStatus)
+                          }>
+
                           {order.orderStatus}
                         </span>
                       </div>

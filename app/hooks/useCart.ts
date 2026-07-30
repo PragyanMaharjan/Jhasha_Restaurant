@@ -56,7 +56,7 @@ export function useCart() {
       toast.info('Cart is already empty');
       return false;
     }
-    
+
     if (confirm('Are you sure you want to clear the cart?')) {
       clearCart();
       toast.success('Cart cleared');

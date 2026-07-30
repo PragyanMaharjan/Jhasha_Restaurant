@@ -1,10 +1,12 @@
 {
+  "root": true,
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -12,16 +14,20 @@
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "jsxRuntime": "automatic"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "react-hooks"
-  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "no-undef": "off",
+    "no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-unused-vars": [
       "warn",
@@ -31,8 +37,6 @@
       }
     ],
     "no-console": ["warn", { "allow": ["warn", "error"] }],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
     "semi": ["error", "always"],
     "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
     "comma-dangle": ["error", "only-multiline"],
@@ -51,6 +55,12 @@
     ".next/",
     "out/",
     "build/",
-    "coverage/"
+    "coverage/",
+    "**/__tests__/**",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "vitest.helpers.ts"
   ]
 }

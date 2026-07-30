@@ -17,11 +17,9 @@ export default function ForgotPassword() {
       setLoading(true);
       console.log('Sending forgot password request for:', email);
       console.log('API endpoint:', '/auth/forgot-password');
-      
-      const response = await API.post('/auth/forgot-password', { email });
-      
-      console.log('Forgot password response:', response.data);
-      
+
+      await API.post('/auth/forgot-password', { email });
+
       setEmailSent(true);
       toast.success('✅ Password reset email sent! Please check your inbox.');
     } catch (error: any) {
@@ -33,7 +31,7 @@ export default function ForgotPassword() {
         baseURL: error.config?.baseURL,
         fullURL: `${error.config?.baseURL}${error.config?.url}`
       });
-      
+
       toast.error(getErrorMessage(error, '❌ Unable to send reset email. Please try again.'));
     } finally {
       setLoading(false);
@@ -67,7 +65,7 @@ export default function ForgotPassword() {
                 placeholder="your@email.com"
               />
               <p className="text-sm text-gray-600 mt-2">
-                Enter your registered email and we'll send you a link to reset your password
+                Enter your registered email and we&apos;ll send you a link to reset your password
               </p>
             </div>
 

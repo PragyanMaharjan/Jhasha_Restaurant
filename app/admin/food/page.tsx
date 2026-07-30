@@ -47,8 +47,13 @@ export default function AdminFood() {
   const fetchFoods = async () => {
     try {
       setLoading(true);
-      const response = await API.get('/food');
-      setFoods(response.data.foods);
+      const response = await API.get('/products?showAll=true');
+      const products = response.data?.data?.products ?? [];
+      setFoods(products.map((product: any) => ({
+        ...product,
+        isAvailable: product.isActive,
+        image: product.images?.[0] || ''
+      })));
     } catch (error) {
       toast.error('Failed to fetch foods');
     } finally {
@@ -65,17 +70,18 @@ export default function AdminFood() {
       formDataToSend.append('description', formData.description);
       formDataToSend.append('category', formData.category);
       formDataToSend.append('price', formData.price);
-      formDataToSend.append('isVegetarian', String(formData.isVegetarian));
-      formDataToSend.append('spiceLevel', formData.spiceLevel);
-      if (image) formDataToSend.append('image', image);
+      formDataToSend.append('stock', '10');
+      formDataToSend.append('isActive', 'true');
+      formDataToSend.append('isFeatured', 'false');
+      if (image) formDataToSend.append('images', image);
 
       if (editingFood) {
-        await API.put(`/food/${editingFood._id}`, formDataToSend, {
+        await API.put(`/products/${editingFood._id}`, formDataToSend, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
         toast.success('Food updated successfully');
       } else {
-        await API.post('/food', formDataToSend, {
+        await API.post('/products', formDataToSend, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
         toast.success('Food added successfully');
@@ -101,7 +107,7 @@ export default function AdminFood() {
   const handleDelete = async (foodId: string) => {
     if (confirm('Are you sure you want to delete this food?')) {
       try {
-        await API.delete(`/food/${foodId}`);
+        await API.delete(`/products/${foodId}`);
         toast.success('Food deleted successfully');
         fetchFoods();
       } catch (error) {

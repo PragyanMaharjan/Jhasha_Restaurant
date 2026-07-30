@@ -26,7 +26,7 @@ describe('useAuthStore - Zustand Auth Store', () => {
     it('initializes with token from cookies', () => {
       (Cookies.get as any).mockReturnValue('stored-token-xyz');
       useAuthStore.setState({ token: 'stored-token-xyz', isAuthenticated: true });
-      
+
       const state = useAuthStore.getState();
       expect(state.token).toBe('stored-token-xyz');
       expect(state.isAuthenticated).toBe(true);
@@ -37,7 +37,7 @@ describe('useAuthStore - Zustand Auth Store', () => {
     it('sets user data in store', () => {
       const testUser = { _id: '123', name: 'Test User', email: 'test@test.com', role: 'user' };
       useAuthStore.setState({ user: testUser });
-      
+
       const state = useAuthStore.getState();
       expect(state.user).toEqual(testUser);
     });
@@ -45,10 +45,10 @@ describe('useAuthStore - Zustand Auth Store', () => {
     it('updates user data without affecting other state', () => {
       const testUser = { _id: '123', name: 'Test User', email: 'test@test.com', role: 'user' };
       useAuthStore.setState({ user: testUser, isAuthenticated: true });
-      
+
       const updatedUser = { ...testUser, name: 'Updated Name' };
       useAuthStore.setState({ user: updatedUser });
-      
+
       const state = useAuthStore.getState();
       expect(state.user?.name).toBe('Updated Name');
       expect(state.isAuthenticated).toBe(true);
@@ -58,7 +58,7 @@ describe('useAuthStore - Zustand Auth Store', () => {
   describe('setToken Action', () => {
     it('sets token and marks as authenticated', () => {
       useAuthStore.setState({ token: 'new-token-123', isAuthenticated: true } as any);
-      
+
       const state = useAuthStore.getState();
       expect(state.token).toBe('new-token-123');
       expect(state.isAuthenticated).toBe(true);
@@ -66,7 +66,7 @@ describe('useAuthStore - Zustand Auth Store', () => {
 
     it('handles empty token', () => {
       useAuthStore.setState({ token: '', isAuthenticated: false });
-      
+
       const state = useAuthStore.getState();
       expect(state.token).toBe('');
       expect(state.isAuthenticated).toBe(false);

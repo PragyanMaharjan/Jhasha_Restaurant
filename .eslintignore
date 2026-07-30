@@ -1,0 +1,2 @@
+# Ignore CSS files that ESLint can't parse in this project
+app/globals.css

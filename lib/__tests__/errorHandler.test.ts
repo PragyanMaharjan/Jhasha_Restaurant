@@ -7,9 +7,9 @@ describe('Error Handler Utility', () => {
       const error = {
         message: 'Network Error'
       };
-      
+
       const result = getErrorMessage(error, 'Fallback message');
-      
+
       expect(result).toContain('Connection error');
       expect(result).toContain('internet connection');
     });
@@ -23,9 +23,9 @@ describe('Error Handler Utility', () => {
           }
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toBe('Invalid input data');
     });
 
@@ -36,9 +36,9 @@ describe('Error Handler Utility', () => {
           data: {}
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('Invalid request');
     });
 
@@ -48,9 +48,9 @@ describe('Error Handler Utility', () => {
           status: 401
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('Session expired');
       expect(result).toContain('log in again');
     });
@@ -61,9 +61,9 @@ describe('Error Handler Utility', () => {
           status: 403
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('permission');
     });
 
@@ -73,9 +73,9 @@ describe('Error Handler Utility', () => {
           status: 404
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('not found');
     });
 
@@ -88,9 +88,9 @@ describe('Error Handler Utility', () => {
           }
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toBe('Email already exists');
     });
 
@@ -101,9 +101,9 @@ describe('Error Handler Utility', () => {
           data: {}
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('already exists');
     });
 
@@ -116,9 +116,9 @@ describe('Error Handler Utility', () => {
           }
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toBe('Validation failed');
     });
 
@@ -129,9 +129,9 @@ describe('Error Handler Utility', () => {
           data: {}
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('check the information');
     });
 
@@ -141,9 +141,9 @@ describe('Error Handler Utility', () => {
           status: 429
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('Too many requests');
       expect(result).toContain('wait');
     });
@@ -154,9 +154,9 @@ describe('Error Handler Utility', () => {
           status: 500
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('Server error');
       expect(result).toContain('try again later');
     });
@@ -167,9 +167,9 @@ describe('Error Handler Utility', () => {
           status: 503
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('temporarily unavailable');
     });
 
@@ -182,9 +182,9 @@ describe('Error Handler Utility', () => {
           }
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toBe('I am a teapot');
     });
 
@@ -198,9 +198,9 @@ describe('Error Handler Utility', () => {
           }
         }
       };
-      
+
       const result = getErrorMessage(error, 'Custom fallback message');
-      
+
       expect(result).toBe('Custom fallback message');
     });
 
@@ -210,9 +210,9 @@ describe('Error Handler Utility', () => {
           status: 418
         }
       };
-      
+
       const result = getErrorMessage(error, 'Custom fallback message');
-      
+
       expect(result).toBe('Custom fallback message');
     });
 
@@ -222,9 +222,9 @@ describe('Error Handler Utility', () => {
           status: 400
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('Invalid request');
     });
 
@@ -237,9 +237,9 @@ describe('Error Handler Utility', () => {
           }
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toBe('Specific error occurred');
     });
 
@@ -253,37 +253,37 @@ describe('Error Handler Utility', () => {
           }
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toBe('Message text');
     });
 
     test('should handle null error gracefully', () => {
       const result = getErrorMessage(null, 'Fallback message');
-      
+
       expect(result).toContain('Connection error');
     });
 
     test('should handle undefined error gracefully', () => {
       const result = getErrorMessage(undefined, 'Fallback message');
-      
+
       expect(result).toContain('Connection error');
     });
 
     test('should return connection error for error without response', () => {
       const error = { message: 'Some error' };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('Connection error');
     });
 
     test('should handle null response', () => {
       const error = { response: null };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('Connection error');
     });
 
@@ -294,9 +294,9 @@ describe('Error Handler Utility', () => {
           data: null
         }
       };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result).toContain('Invalid request');
     });
 
@@ -307,9 +307,9 @@ describe('Error Handler Utility', () => {
           data: { message: 'Error message' }
         }
       };
-      
+
       const result = getErrorMessage(error, 'Error message');
-      
+
       expect(result).toBeDefined();
     });
   });
@@ -317,19 +317,19 @@ describe('Error Handler Utility', () => {
   describe('formatValidationErrors', () => {
     test('should return default message for empty errors array', () => {
       const result = formatValidationErrors([]);
-      
+
       expect(result).toContain('check your input');
     });
 
     test('should return default message for null errors', () => {
       const result = formatValidationErrors(null as any);
-      
+
       expect(result).toContain('check your input');
     });
 
     test('should return default message for undefined errors', () => {
       const result = formatValidationErrors(undefined as any);
-      
+
       expect(result).toContain('check your input');
     });
 
@@ -338,9 +338,9 @@ describe('Error Handler Utility', () => {
         { message: 'Name is required' },
         { message: 'Email is invalid' }
       ];
-      
+
       const result = formatValidationErrors(errors);
-      
+
       expect(result).toBe('Name is required');
     });
 
@@ -348,9 +348,9 @@ describe('Error Handler Utility', () => {
       const errors = [
         { message: 'Password must be at least 6 characters' }
       ];
-      
+
       const result = formatValidationErrors(errors);
-      
+
       expect(result).toBe('Password must be at least 6 characters');
     });
 
@@ -358,9 +358,9 @@ describe('Error Handler Utility', () => {
       const errors = [
         { field: 'email', code: 'invalid' }
       ];
-      
+
       const result = formatValidationErrors(errors);
-      
+
       expect(result).toContain('check your input');
     });
 
@@ -368,9 +368,9 @@ describe('Error Handler Utility', () => {
       const errors = [
         { message: '' }
       ];
-      
+
       const result = formatValidationErrors(errors);
-      
+
       expect(result).toContain('check your input');
     });
 
@@ -380,9 +380,9 @@ describe('Error Handler Utility', () => {
         { message: 'Second error' },
         { message: 'Third error' }
       ];
-      
+
       const result = formatValidationErrors(errors);
-      
+
       expect(result).toBe('First error');
     });
 
@@ -391,9 +391,9 @@ describe('Error Handler Utility', () => {
         { code: 'ERROR' },
         { message: 'Second error with message' }
       ];
-      
+
       const result = formatValidationErrors(errors);
-      
+
       expect(result).toContain('check your input');
     });
   });
@@ -401,31 +401,31 @@ describe('Error Handler Utility', () => {
   describe('Error message consistency', () => {
     test('getErrorMessage should always return a string', () => {
       const error = { response: { status: 500 } };
-      
+
       const result = getErrorMessage(error, 'Default');
-      
+
       expect(typeof result).toBe('string');
     });
 
     test('formatValidationErrors should always return a string', () => {
       const errors = [{ message: 'Test' }];
-      
+
       const result = formatValidationErrors(errors);
-      
+
       expect(typeof result).toBe('string');
     });
 
     test('should never return empty string from getErrorMessage', () => {
       const error = { response: { status: 999 } };
-      
+
       const result = getErrorMessage(error, 'Fallback');
-      
+
       expect(result.length > 0).toBe(true);
     });
 
     test('should never return empty string from formatValidationErrors', () => {
       const result = formatValidationErrors(null);
-      
+
       expect(result.length > 0).toBe(true);
     });
   });

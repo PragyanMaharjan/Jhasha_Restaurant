@@ -7,7 +7,18 @@ import API from '@/lib/api';
 import { useAuthStore } from '@/lib/store';
 import AdminSidebar from '@/components/AdminSidebar';
 import { toast } from 'react-toastify';
-import {  FaArrowLeft, FaEnvelope, FaPhone, FaCalendarAlt, FaEdit, FaTrash, FaToggleOn, FaToggleOff, FaShoppingBag, FaCheckCircle, FaTimes
+import {
+  FaArrowLeft,
+  FaEnvelope,
+  FaPhone,
+  FaCalendarAlt,
+  FaEdit,
+  FaTrash,
+  FaToggleOn,
+  FaToggleOff,
+  FaShoppingBag,
+  FaCheckCircle,
+  FaTimes,
 } from 'react-icons/fa';
 import { getErrorMessage } from '@/lib/errorHandler';
 
@@ -30,7 +41,7 @@ export default function UserDetail() {
   const params = useParams();
   const userId = params?.id as string;
   const { isAuthenticated, user: authUser } = useAuthStore();
-  
+
   const [user, setUser] = useState<User | null>(null);
   const [ordersCount, setOrdersCount] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -288,9 +299,10 @@ export default function UserDetail() {
               <p className="text-white/80">This action cannot be undone</p>
             </div>
             <div className="p-6">
-              <p className="text-gray-700 mb-6">
-                Are you sure you want to delete <strong>{user.name}</strong>? All associated data will be permanently removed.
+              <p className="text-gray-700 mb-2">
+                Are you sure you want to delete <strong>{user.name}</strong>?
               </p>
+              <p className="text-gray-700 mb-6">All associated data will be permanently removed.</p>
               <div className="flex gap-3">
                 <button
                   onClick={deleteUser}

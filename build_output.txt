@@ -1,0 +1,199 @@
+﻿
+> jhasha-restaurant-frontend@1.0.0 build
+> next build
+
+  Γû▓ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+
+./app/admin/about/page.tsx
+85:6  Warning: React Hook useEffect has a missing dependency: 'fetchAboutUs'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+103:63  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+148:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+161:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+181:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/admin/active-deliveries/page.tsx
+54:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+84:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/admin/categories/page.tsx
+57:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+77:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+88:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/admin/employees/page.tsx
+97:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+110:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+210:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/admin/food/page.tsx
+52:39  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+102:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+264:25  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/admin/orders/page.tsx
+67:6  Warning: React Hook useEffect has a missing dependency: 'router'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/admin/profile/page.tsx
+104:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+133:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/admin/users/page.tsx
+46:6  Warning: React Hook useEffect has a missing dependency: 'fetchUsers'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+88:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+134:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+172:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+270:31  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+309:1  Warning: This line has a length of 134. Maximum allowed is 120.  max-len
+398:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+481:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+583:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/admin/users/[id]/edit/page.tsx
+48:6  Warning: React Hook useEffect has a missing dependency: 'fetchUserDetails'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+68:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+111:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+161:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/admin/users/[id]/page.tsx
+57:6  Warning: React Hook useEffect has a missing dependency: 'fetchUserDetails'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+65:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+95:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+162:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/cart/page.tsx
+100:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/checkout/page.tsx
+68:6  Warning: React Hook useEffect has a missing dependency: 'hydrateCart'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+156:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/forgot-password/page.tsx
+18:7  Warning: Unexpected console statement.  no-console
+19:7  Warning: Unexpected console statement.  no-console
+25:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/hooks/useFetch.ts
+54:6  Warning: React Hook useEffect has missing dependencies: 'fetchData' and 'options.immediate'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+69:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+69:42  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+82:55  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/hooks/useForm.ts
+22:50  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+37:59  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/login/page.tsx
+56:7  Warning: Unexpected console statement.  no-console
+60:7  Warning: Unexpected console statement.  no-console
+80:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/my-orders/page.tsx
+16:10  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+140:1  Warning: This line has a length of 136. Maximum allowed is 120.  max-len
+
+./app/order-confirmation/[id]/page.tsx
+13:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+25:6  Warning: React Hook useEffect has a missing dependency: 'fetchOrder'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+119:39  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+124:25  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/page.tsx
+23:6  Warning: React Hook useEffect has a missing dependency: 'fetchFoods'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/profile/page.tsx
+48:27  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+49:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+86:6  Warning: React Hook useEffect has a missing dependency: 'fetchProfile'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+119:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+130:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+142:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+155:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+177:30  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+186:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+223:25  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/register/page.tsx
+70:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+108:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/reset-password/page.tsx
+57:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/reset-password/[token]/page.tsx
+43:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/track-order/[id]/page.tsx
+85:6  Warning: React Hook useEffect has a missing dependency: 'fetchOrderTracking'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+92:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+243:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/FoodCard.tsx
+54:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./lib/errorHandler.ts
+6:11  Warning: 'ApiError' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+20:40  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+61:48  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./lib/profile.ts
+52:63  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./lib/store.ts
+53:1  Warning: This line has a length of 129. Maximum allowed is 120.  max-len
+55:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+58:30  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+166:1  Warning: This line has a length of 159. Maximum allowed is 120.  max-len
+174:1  Warning: This line has a length of 159. Maximum allowed is 120.  max-len
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/25) ...
+   Generating static pages (6/25) 
+   Generating static pages (12/25) 
+   Generating static pages (18/25) 
+ Γ£ô Generating static pages (25/25)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+Γöî Γùï /                                    5.82 kB         130 kB
+Γö£ Γùï /_not-found                          873 B          88.2 kB
+Γö£ Γùï /about                               2.85 kB         121 kB
+Γö£ Γùï /admin/about                         2.77 kB         140 kB
+Γö£ Γùï /admin/active-deliveries             2.58 kB         140 kB
+Γö£ Γùï /admin/categories                    1.69 kB         139 kB
+Γö£ Γùï /admin/dashboard                     2.58 kB         140 kB
+Γö£ Γùï /admin/employees                     3.27 kB         140 kB
+Γö£ Γùï /admin/food                          2.67 kB         140 kB
+Γö£ Γùï /admin/orders                        2.04 kB         139 kB
+Γö£ Γùï /admin/profile                       11.3 kB         135 kB
+Γö£ Γùï /admin/users                         4.84 kB         142 kB
+Γö£ ╞Æ /admin/users/[id]                    3.04 kB         140 kB
+Γö£ ╞Æ /admin/users/[id]/edit               2.87 kB         140 kB
+Γö£ Γùï /cart                                5.09 kB         138 kB
+Γö£ Γùï /checkout                            7.03 kB         131 kB
+Γö£ Γùï /forgot-password                     1.95 kB         126 kB
+Γö£ Γùï /login                               5.92 kB         139 kB
+Γö£ Γùï /my-orders                           5.37 kB         138 kB
+Γö£ ╞Æ /order-confirmation/[id]             3.42 kB         130 kB
+Γö£ Γùï /payment                             4.25 kB         120 kB
+Γö£ Γùï /payment/failure                     1.45 kB         126 kB
+Γö£ Γùï /payment/success                     1.67 kB         126 kB
+Γö£ Γùï /profile                             6.57 kB         131 kB
+Γö£ Γùï /register                            5.85 kB         139 kB
+Γö£ Γùï /reset-password                      3.46 kB         136 kB
+Γö£ ╞Æ /reset-password/[token]              1.75 kB         117 kB
+Γöö ╞Æ /track-order/[id]                    5.8 kB          139 kB
++ First Load JS shared by all            87.3 kB
+  Γö£ chunks/966-025e97668631d7ad.js       31.7 kB
+  Γö£ chunks/fd9d1056-a53f3cba94fd2c25.js  53.6 kB
+  Γöö other shared chunks (total)          1.95 kB
+
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+

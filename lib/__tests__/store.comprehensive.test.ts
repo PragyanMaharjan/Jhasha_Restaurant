@@ -46,9 +46,9 @@ describe('Store - Comprehensive Tests', () => {
 
     test('should initialize from cookies if token exists', () => {
       (Cookies.get as any).mockReturnValue('existing-token');
-      
+
       const state = useAuthStore.getState();
-      
+
       // Direct test of initialization logic
       expect(Cookies.get).toBeDefined();
     });
@@ -90,7 +90,7 @@ describe('Store - Comprehensive Tests', () => {
       useAuthStore.getState().setToken(token);
 
       expect(Cookies.set).toHaveBeenCalledWith('token', token, { expires: 7 });
-      
+
       const state = useAuthStore.getState();
       expect(state.token).toBe(token);
       expect(state.isAuthenticated).toBe(true);
@@ -101,7 +101,7 @@ describe('Store - Comprehensive Tests', () => {
       useAuthStore.getState().setToken(null);
 
       expect(Cookies.remove).toHaveBeenCalledWith('token');
-      
+
       const state = useAuthStore.getState();
       expect(state.token).toBeNull();
       expect(state.isAuthenticated).toBe(false);
@@ -120,7 +120,7 @@ describe('Store - Comprehensive Tests', () => {
       useAuthStore.getState().logout();
 
       expect(Cookies.remove).toHaveBeenCalledWith('token');
-      
+
       const state = useAuthStore.getState();
       expect(state.user).toBeNull();
       expect(state.token).toBeNull();
@@ -467,7 +467,7 @@ describe('Store - Comprehensive Tests', () => {
       };
 
       useCartStore.getState().addToCart(food);
-      
+
       const stored = localStorageMock.getItem('cart');
       expect(stored).toBeDefined();
     });
@@ -517,10 +517,10 @@ describe('Store - Comprehensive Tests', () => {
 
       useAuthStore.getState().setUser(mockUser);
       useCartStore.getState().addToCart(food);
-      
+
       useAuthStore.getState().logout();
       // Note: Cart clearing on logout would need to be implemented in app logic
-      
+
       expect(useAuthStore.getState().isAuthenticated).toBe(false);
     });
   });

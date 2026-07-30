@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import API from '@/lib/api';
+import { getOrderById } from '@/lib/orders';
 import Link from 'next/link';
 import { FaCheckCircle, FaMapMarkerAlt, FaPhone, FaBox, FaClock } from 'react-icons/fa';
 
 export default function OrderConfirmation() {
   const params = useParams();
-  const router = useRouter();
+  const _router = useRouter();
   const orderId = params?.id as string;
   const [order, setOrder] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -26,8 +26,8 @@ export default function OrderConfirmation() {
 
   const fetchOrder = async () => {
     try {
-      const response = await API.get(`/orders/${orderId}`);
-      setOrder(response.data.order);
+      const orderResponse = await getOrderById(orderId);
+      setOrder(orderResponse);
     } catch (error) {
       console.error('Failed to fetch order');
     } finally {
@@ -178,7 +178,7 @@ export default function OrderConfirmation() {
           {/* Footer Info */}
           <div className="text-center pt-6 border-t-2 border-gray-200">
             <p className="text-sm text-gray-600 mb-2">
-              📧 You'll receive a confirmation email shortly.
+              📧 You&apos;ll receive a confirmation email shortly.
             </p>
             <p className="text-xs text-gray-500">
               Estimated delivery: 30-45 minutes
@@ -190,7 +190,7 @@ export default function OrderConfirmation() {
         <div className="text-center mt-8 animate-slideInUp" style={{ animationDelay: '0.3s' }}>
           <div className="inline-block bg-white px-8 py-4 rounded-xl shadow-md">
             <p className="text-lg font-bold text-gray-900">Thank you for choosing Jhasha! 🙏</p>
-            <p className="text-sm text-gray-600">We're preparing your delicious meal with love ❤️</p>
+            <p className="text-sm text-gray-600">We&apos;re preparing your delicious meal with love ❤️</p>
           </div>
         </div>
       </div>

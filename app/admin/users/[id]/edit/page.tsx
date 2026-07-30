@@ -24,7 +24,7 @@ export default function EditUser() {
   const params = useParams();
   const userId = (params?.id as string) || '';
   const { isAuthenticated, user: authUser } = useAuthStore();
-  
+
   const [formData, setFormData] = useState<UserFormData>({
     name: '',
     email: '',
@@ -52,7 +52,7 @@ export default function EditUser() {
       setLoading(true);
       const response = await API.get(`/admin/users/${userId}`);
       const user = response.data.user;
-      
+
       setFormData({
         name: user.name,
         email: user.email,
@@ -97,7 +97,7 @@ export default function EditUser() {
       formDataToSend.append('address', formData.address);
       formDataToSend.append('city', formData.city);
       formDataToSend.append('zipCode', formData.zipCode);
-      
+
       if (profileImage) {
         formDataToSend.append('profileImage', profileImage);
       }

@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useCartStore, useAuthStore } from '@/lib/store';
 import Link from 'next/link';
-import API from '@/lib/api';
+// API import removed — not used in this file
 import { toast } from 'react-toastify';
 import { FaTrash, FaMinus, FaPlus, FaShoppingBag, FaArrowLeft } from 'react-icons/fa';
 
 export default function Cart() {
   const router = useRouter();
   const { isAuthenticated } = useAuthStore();
-  const { cart, total, removeFromCart, updateQuantity, clearCart } = useCartStore();
+  const { cart, total, removeFromCart, updateQuantity, clearCart, hydrateCart } = useCartStore();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -19,10 +19,17 @@ export default function Cart() {
   }, []);
 
   useEffect(() => {
-    if (mounted && !isAuthenticated) {
-      router.push('/login');
+    if (!mounted) {
+      return;
     }
-  }, [mounted, isAuthenticated, router]);
+
+    if (!isAuthenticated) {
+      router.push('/login');
+      return;
+    }
+
+    void hydrateCart();
+  }, [mounted, isAuthenticated, router, hydrateCart]);
 
   const handleCheckout = async () => {
     if (cart.length === 0) {
@@ -108,7 +115,7 @@ export default function Cart() {
                     <div className="flex items-center gap-3">
                       <div className="flex items-center bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border-2 border-gray-200">
                         <button
-                          onClick={() => updateQuantity(item._id, item.quantity - 1)}
+                          onClick={() => void updateQuantity(item._id, item.quantity - 1)}
                           disabled={item.quantity === 1}
                           className="text-primary p-2 hover:bg-primary hover:text-white disabled:opacity-50 transition"
                         >
@@ -116,7 +123,7 @@ export default function Cart() {
                         </button>
                         <span className="px-4 font-bold text-gray-900">{item.quantity}</span>
                         <button
-                          onClick={() => updateQuantity(item._id, item.quantity + 1)}
+                          onClick={() => void updateQuantity(item._id, item.quantity + 1)}
                           className="text-primary p-2 hover:bg-primary hover:text-white transition"
                         >
                           <FaPlus size={12} />
@@ -134,7 +141,7 @@ export default function Cart() {
                       {/* Delete Button */}
                       <button
                         onClick={() => {
-                          removeFromCart(item._id);
+                          void removeFromCart(item._id);
                           toast.info('Item removed from cart');
                         }}
                         className="text-red-600 hover:bg-red-50 p-3 rounded-lg transition"
@@ -149,7 +156,7 @@ export default function Cart() {
               {/* Clear Cart Button */}
               <button
                 onClick={() => {
-                  clearCart();
+                  void clearCart();
                   toast.info('Cart cleared');
                 }}
                 className="text-red-600 font-semibold hover:text-red-700 transition mt-4"

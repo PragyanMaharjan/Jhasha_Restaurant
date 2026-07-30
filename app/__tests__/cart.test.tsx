@@ -11,11 +11,12 @@ vi.mock('next/navigation', () => ({
 
 vi.mock('../../../lib/store', () => ({
   useCartStore: () => ({
-    items: [],
+    cart: [],
     total: 0,
-    removeFromCart: vi.fn(),
-    updateQuantity: vi.fn(),
-    clearCart: vi.fn(),
+    hydrateCart: vi.fn().mockResolvedValue(undefined),
+    removeFromCart: vi.fn().mockResolvedValue(undefined),
+    updateQuantity: vi.fn().mockResolvedValue(undefined),
+    clearCart: vi.fn().mockResolvedValue(undefined),
   }),
   useAuthStore: () => ({
     isAuthenticated: false,
